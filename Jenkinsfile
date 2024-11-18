@@ -49,7 +49,7 @@ pipeline {
                 script {
                     sh "sudo chmod 400 ${PEM}"
                     sh '''
-                        ssh -T -i ${PEM} ${USER}@${TARGET_HOST} "echo '$DOCKER_PASSWORD' | docker login -u ${DOCKER_USERNAME} --password-stdin"
+                        ssh -i ${PEM} ${USER}@${TARGET_HOST} "echo '$DOCKER_PASSWORD' | nohup docker login -u ${DOCKER_USERNAME} --password-stdin > /dev/null 2>&1 &"
                     '''
                 }
             }
