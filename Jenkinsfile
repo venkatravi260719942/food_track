@@ -46,10 +46,10 @@ pipeline {
         stage('SSH Docker Login') {
             steps {
                 script {
-                    withCredentials([file(credentialsId: 'TARGET_SSH_PEM', variable: 'PEM_FILE')]) {
+                    withCredentials([sshUserPrivateKey(credentialsId: 'TARGET_SSH_CREDENTIAL', keyFileVariable: 'SSH_KEY')]) {
                         sh '''
-                            chmod 400 $PEM_FILE
-                            ssh -i $PEM_FILE ${USER}@${TARGET_HOST} "echo '$DOCKER_PASSWORD' | docker login -u ${DOCKER_USERNAME} --password-stdin"
+                            chmod 400 $SSH_KEY
+                            ssh -i $SSH_KEY ${USER}@${TARGET_HOST} "echo '$DOCKER_PASSWORD' | docker login -u ${DOCKER_USERNAME} --password-stdin"
                         '''
                     }
                 }
@@ -60,13 +60,13 @@ pipeline {
             steps {
                 script {
                    // Transfer the .env file to the target host
-                    withCredentials([file(credentialsId: 'TARGET_SSH_PEM', variable: 'PEM_FILE')]) {
+                    withCredentials([sshUserPrivateKey(credentialsId: 'TARGET_SSH_CREDENTIAL', keyFileVariable: 'SSH_KEY')]) {
                         sh '''
-                            scp -i $PEM_FILE ${ENV_FILE} ${USER}@${TARGET_HOST}:/home/ubuntu/.env
-                            scp -i $PEM_FILE ${COMPOSE_FILE} ${USER}@${TARGET_HOST}:/home/ubuntu/docker-compose.yml
-                            ssh -i $PEM_FILE ${USER}@${TARGET_HOST} 'docker pull ${DOCKER_REPO}:${CLIENT_IMAGE}-${IMAGE_TAG}'
-                            ssh -i $PEM_FILE ${USER}@${TARGET_HOST} 'docker pull ${DOCKER_REPO}:${SERVER_IMAGE}-${IMAGE_TAG}'
-                            ssh -i $PEM_FILE ${USER}@${TARGET_HOST} 'docker-compose -f /home/ubuntu/docker-compose.yml up -d'
+                            scp -i $SSH_KEY ${ENV_FILE} ${USER}@${TARGET_HOST}:/home/ubuntu/.env
+                            scp -i $SSH_KEY ${COMPOSE_FILE} ${USER}@${TARGET_HOST}:/home/ubuntu/docker-compose.yml
+                            ssh -i $SSH_KEY ${USER}@${TARGET_HOST} 'docker pull ${DOCKER_REPO}:${CLIENT_IMAGE}-${IMAGE_TAG}'
+                            ssh -i $SSH_KEY ${USER}@${TARGET_HOST} 'docker pull ${DOCKER_REPO}:${SERVER_IMAGE}-${IMAGE_TAG}'
+                            ssh -i $SSH_KEY ${USER}@${TARGET_HOST} 'docker-compose -f /home/ubuntu/docker-compose.yml up -d'
                         '''
                     }
                 }
