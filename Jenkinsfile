@@ -2,7 +2,6 @@ pipeline {
     agent any
     parameters {
         string(name: 'TARGET_HOST', defaultValue: 'dev-vm-ip', description: 'Target VM IP Address for Deployment')
-        file(name: 'ENV_FILE', description: '.env file for configuration')
         string(name: 'IMAGE_TAG', defaultValue: "${env.BUILD_ID}", description: 'Docker image tag (default: Build ID)')
     }
     environment {
@@ -13,6 +12,7 @@ pipeline {
         COMPOSE_FILE = 'docker-compose.yml' // Docker Compose file for deployment
         USER= 'ubuntu'
         PEM= 'mumbai.pem'
+        ENV_FILE= '.env'
 
     }
     stages {
