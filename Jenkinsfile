@@ -13,7 +13,6 @@ pipeline {
         DOCKER_REPO = 'venkatravi26071994/food' // Docker Hub repository
         COMPOSE_FILE = 'docker-compose.yml' // Docker Compose file for deployment
         USER = 'ubuntu'
-        PEM = 'mumbai.pem'
         ENV_FILE = '.env'
     }
     stages {
@@ -47,10 +46,10 @@ pipeline {
         stage('SSH Docker Login') {
             steps {
                 script {
-                    withCredentials([string(credentialsId: 'DOCKERHUB_CREDENTIAL_ID', variable: 'DOCKER_PASSWORD')]) {
-                        sh "sudo chmod 400 ${PEM}"
+                    withCredentials([file(credentialsId: 'TARGET_SSH_PEM', variable: 'PEM_FILE')]) {
                         sh '''
-                            ssh -i ${PEM} ${USER}@${TARGET_HOST} "echo '$DOCKER_PASSWORD' | docker login -u ${DOCKER_USERNAME} --password-stdin"
+                            chmod 400 $PEM_FILE
+                            ssh -i $PEM_FILE ${USER}@${TARGET_HOST} "echo '$DOCKER_PASSWORD' | docker login -u ${DOCKER_USERNAME} --password-stdin"
                         '''
                     }
                 }
@@ -61,15 +60,15 @@ pipeline {
             steps {
                 script {
                    // Transfer the .env file to the target host
-                    sh "scp -i ${PEM} ${ENV_FILE} ${USER}@${TARGET_HOST}:/home/ubuntu/.env"
-                    
-                    sh "scp -i ${PEM} ${COMPOSE_FILE} ${USER}@${TARGET_HOST}:/home/ubuntu/docker-compose.yml"
-                    // Pull the Docker images on the Target VM
-                    sh "ssh -i ${PEM} ${USER}@${TARGET_HOST} 'docker pull ${DOCKER_REPO}:${CLIENT_IMAGE}-${IMAGE_TAG}'"
-                    sh "ssh -i ${PEM} ${USER}@${TARGET_HOST} 'docker pull ${DOCKER_REPO}:${SERVER_IMAGE}-${IMAGE_TAG}'"
-                    
-                    // Deploy the images using docker-compose on the Target VM
-                    sh "ssh -i ${PEM} ${USER}@${TARGET_HOST} 'docker-compose -f /home/ubuntu/docker-compose.yml up -d'"
+                    withCredentials([file(credentialsId: 'TARGET_SSH_PEM', variable: 'PEM_FILE')]) {
+                        sh '''
+                            scp -i $PEM_FILE ${ENV_FILE} ${USER}@${TARGET_HOST}:/home/ubuntu/.env
+                            scp -i $PEM_FILE ${COMPOSE_FILE} ${USER}@${TARGET_HOST}:/home/ubuntu/docker-compose.yml
+                            ssh -i $PEM_FILE ${USER}@${TARGET_HOST} 'docker pull ${DOCKER_REPO}:${CLIENT_IMAGE}-${IMAGE_TAG}'
+                            ssh -i $PEM_FILE ${USER}@${TARGET_HOST} 'docker pull ${DOCKER_REPO}:${SERVER_IMAGE}-${IMAGE_TAG}'
+                            ssh -i $PEM_FILE ${USER}@${TARGET_HOST} 'docker-compose -f /home/ubuntu/docker-compose.yml up -d'
+                        '''
+                    }
                 }
             }
         }
