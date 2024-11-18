@@ -1,38 +1,36 @@
-# Use Node.js 16 as base image
-FROM node:16-buster-slim
+# Use an official Node.js image to build the application
+FROM node:16-buster AS builder
 
-# Set the working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Install required packages and set permissions
-RUN apt-get update \
-    && apt-get install -y build-essential curl --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
-    && apt-get clean
+# Copy package.json and package-lock.json
+COPY package.json package-lock.json ./
 
-# Copy package.json and package-lock.json, and set ownership to 'node' user
-COPY --chown=node:node package*.json ./
-
-# Ensure node_modules folder has the correct permissions
-RUN mkdir -p /app/node_modules && chown node:node /app/node_modules
-
-# Install npm dependencies (ci is used for a clean install)
+# Install dependencies
 RUN npm ci
 
-# Run Prisma generate to create the Prisma client
-RUN npx prisma generate
+# Copy all source files
+COPY . .
 
-# Copy all the application files into the container and set correct ownership
-COPY --chown=node:node . .
+# Build the application for production
+RUN npm run build
 
-# Expose port 9000 for the application (adjust if needed)
-EXPOSE 9000
+# Use Node.js to serve the built application
+FROM node:16-buster
 
-# Set environment variables (if required)
-# ENV NODE_ENV=production
+# Set working directory
+WORKDIR /app
 
-# Set the user as 'node' for security
-USER node
+# Copy built files from the builder stage
+COPY --from=builder /app/dist /app/dist
 
-# Start the application
-CMD ["npm", "start"]
+# Install a lightweight HTTP server to serve the app (like serve)
+RUN npm install -g serve
+
+# Expose port 3000 (or any port your app uses)
+EXPOSE 3000
+
+# Command to start the application
+CMD ["serve", "-s", "dist", "-l", "3000"]
+

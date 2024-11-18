@@ -1,93 +1,70 @@
 pipeline {
-    agent any   
-        tools{
-             nodejs 'node'
-             
-        }
-        environment {
-            SCANNER_HOME= tool 'sonar-scanner'
-        } 
-    stages {
-        stage('Git Checkout') {
-            steps {
-                   checkout(
-          scm: [
-            $class: 'GitSCM',
-            branches: [[name: 'origin/main']], // Specify branch to checkout
-            userRemoteConfigs: [[url: 'http://167.235.49.72:3000/arunkumar/foodtraczz.git', credentialsId: 'CI/CD']]
-          ]
-        ) 
-            }
-        }
-        stage('Compile') {
-            steps {
-               echo "compiled using build automation tool" 
-            }
-        }
-        stage('Sonarqube Frontend Analysis'){
-       
-            steps {
-                  sh '''
-                    npx sonarqube-scanner -Dsonar.host.url=http://167.235.49.72:9000/ \
-                    -Dsonar.login=sqp_06f9f63ad2b2e17ff1540aa6293dbd43b2a554e1 \
-                    -Dsonar.projectName=foddtracz\
-                    -Dsonar.projectKey=foddtracz \
-                    -Dsonar.sources=/var/lib/jenkins/workspace/foodtracz_CI_pipeline/client
-                    '''
-             }
-        }
-         stage('Sonarqube Backend Analysis'){
-            steps {
-                  sh '''
-                    npx sonarqube-scanner -Dsonar.host.url=http://167.235.49.72:9000/ \
-                    -Dsonar.login=sqp_06f9f63ad2b2e17ff1540aa6293dbd43b2a554e1 \
-                    -Dsonar.projectName=foddtracz \
-                    -Dsonar.projectKey=foddtracz\
-                    -Dsonar.sources=/var/lib/jenkins/workspace/foodtracz_CI_pipeline/server
-                    '''
-            }
-        }
-      
-          stage('Install Dependencies'){
-            steps {
-            dir('client') {
-                    sh 'npm install'
-            }
-            dir('server') {
-                    sh 'npm install'
-            }
-                }
-        }
-       
-        // stage('Trigger CD Pipeline'){
-        //     steps {
-        //         build job: "CD_Pipeline", wait: true
-        //         }
-        // }
+    agent any
+    parameters {
+        string(name: 'TARGET_HOST', defaultValue: 'dev-vm-ip', description: 'Target VM IP Address for Deployment')
+        file(name: 'ENV_FILE', description: '.env file for configuration')
+        string(name: 'IMAGE_TAG', defaultValue: "${env.BUILD_ID}", description: 'Docker image tag (default: Build ID)')
     }
-    post { 
-            always { 
-                    emailext(
-                        subject:"${BUILD_TAG} Build report",
-                        body:'''<html>
-                                    <body>
-                                      <div>
-                                   Hi,
-                                    <p> Please find the last build job details below.</p>
-                                        <p>Build Status:<b>${BUILD_STATUS}</b></p>
-                                        <p>Build Number:${BUILD_NUMBER}</p>
-                                        <p>Check the <a href="${BUILD_URL}"> console output here.</a></p>
-                                    
-                                    Thanks!
-                                      </div>
-                                    Note:This is an automated email
-                                    </body>
-                                </html>''',
-                        to: 'arunkumar.krishnasamy@adept-view.com', 
-                        from: 'arunkumar.krishnasamy@adept-view.com',
-                        replyTo:'arunkumar.krishnasamy@adept-view.com', 
-                        mimeType: 'text/html'
-                    )
+    environment {
+        CLIENT_IMAGE = 'foodtrack-client'   // Docker image for client
+        SERVER_IMAGE = 'foodtrack-server'   // Docker image for server
+        DOCKER_REGISTRY = 'venkatravi26071994'       // Docker Hub registry
+        DOCKER_REPO = 'food'        // Docker Hub repository
+        COMPOSE_FILE = 'docker-compose.yml' // Docker Compose file for deployment
+    }
+    stages {
+        stage('CI: Checkout') {
+            steps {
+                checkout scm
             }
+        }
+        
+        stage('CI: Build & Push Docker Images') {
+            steps {
+                script {
+                    // Docker login (ensure you have the Docker credentials set in Jenkins)
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                        sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD} ${DOCKER_REGISTRY}"
+                    }
+                    
+                    // Build Docker image for the client and server
+                    sh "docker build -t ${DOCKER_REGISTRY}/${DOCKER_REPO}/${CLIENT_IMAGE}:${IMAGE_TAG} ./client"
+                    sh "docker build -t ${DOCKER_REGISTRY}/${DOCKER_REPO}/${SERVER_IMAGE}:${IMAGE_TAG} ./server"
+                    
+                    // Push Docker images to the registry
+                    sh "docker push ${DOCKER_REGISTRY}/${DOCKER_REPO}/${CLIENT_IMAGE}:${IMAGE_TAG}"
+                    sh "docker push ${DOCKER_REGISTRY}/${DOCKER_REPO}/${SERVER_IMAGE}:${IMAGE_TAG}"
+                }
+            }
+        }
+        
+        stage('CD: Deploy to Target Host') {
+            steps {
+                script {
+                    // Docker login for deployment (ensure same Docker credentials)
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                        sh "ssh -o StrictHostKeyChecking=no user@${TARGET_HOST} 'docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD} ${DOCKER_REGISTRY}'"
+                    }
+
+                    // Transfer the .env file to the target host
+                    sh "scp ${ENV_FILE} user@${TARGET_HOST}:/home/ubuntu/.env"
+                    
+                    // Pull the Docker images on the Target VM
+                    sh "ssh -o StrictHostKeyChecking=no user@${TARGET_HOST} 'docker pull ${DOCKER_REGISTRY}/${DOCKER_REPO}/${CLIENT_IMAGE}:${IMAGE_TAG}'"
+                    sh "ssh -o StrictHostKeyChecking=no user@${TARGET_HOST} 'docker pull ${DOCKER_REGISTRY}/${DOCKER_REPO}/${SERVER_IMAGE}:${IMAGE_TAG}'"
+                    
+                    // Deploy the images using docker-compose on the Target VM
+                    sh "ssh -o StrictHostKeyChecking=no user@${TARGET_HOST} 'docker-compose -f ${COMPOSE_FILE} up -d'"
+                }
+            }
+        }
+    }
+    post {
+        success {
+            echo "Build and Deployment successful!"
+        }
+        failure {
+            echo "Build or Deployment failed."
+        }
     }
 }

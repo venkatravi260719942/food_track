@@ -1,38 +1,41 @@
+# Use Node.js 16 as base image
 FROM node:16-buster-slim
 
+# Set the working directory inside the container
 WORKDIR /app
 
-# Install dependencies
+# Install required packages and set permissions
 RUN apt-get update \
-  && apt-get install -y build-essential curl --no-install-recommends \
-  && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
-  && apt-get clean
+    && apt-get install -y build-essential curl --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
+    && apt-get clean
 
-# Switch to node user
-USER node
+# Copy package.json and package-lock.json, and set ownership to 'node' user
+COPY --chown=node:node package*.json ./
 
-# Ensure the node_modules folder has the correct permissions
+# Ensure node_modules folder has the correct permissions
 RUN mkdir -p /app/node_modules && chown node:node /app/node_modules
 
-# Copy package.json and package-lock.json
-COPY --chown=node:node package.json package-lock.json ./
-
-# Install dependencies
+# Install npm dependencies (ci is used for a clean install)
 RUN npm ci
 
-# Set environment variables
-ARG NODE_ENV="production"
-ARG LOG_LEVEL="info"
-ARG DATABASE_URL
-ENV NODE_ENV="${NODE_ENV}" \
-    PATH="${PATH}:/node_modules/.bin" \
-    USER="node" \
-    DATABASE_URL="${DATABASE_URL}" \
-    LOG_LEVEL="${LOG_LEVEL}"
+# Copy the Prisma schema and other necessary files into the container
+COPY --chown=node:node prisma ./prisma
 
-# Copy remaining application files
+# Run Prisma generate to create the Prisma client
+RUN npx prisma generate
+
+# Copy all the application files into the container and set correct ownership
 COPY --chown=node:node . .
 
+# Expose port 9000 for the application (adjust if needed)
 EXPOSE 9000
 
-CMD node server
+# Set environment variables (if required)
+# ENV NODE_ENV=production
+
+# Set the user as 'node' for security
+USER node
+
+# Start the application
+CMD ["npm", "start"]

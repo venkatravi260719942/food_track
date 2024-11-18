@@ -7,7 +7,8 @@ const app = express();
 
 app.enable("json spaces");
 app.enable("strict routing");
-app.use(cors({ origin: "http://localhost:5500", credentials: true }));
+// app.use(cors({ origin: "http://localhost:5500", credentials: true }));
+app.use(cors({ origin: ["http://localhost:5500", "http://13.203.76.79:80"], credentials: true }));
 app.use(express.json());
 app.use(routes);
 
