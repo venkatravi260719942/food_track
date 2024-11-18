@@ -11,6 +11,9 @@ pipeline {
         DOCKER_REGISTRY = 'venkatravi26071994'       // Docker Hub registry
         DOCKER_REPO = 'food'        // Docker Hub repository
         COMPOSE_FILE = 'docker-compose.yml' // Docker Compose file for deployment
+        USER= 'ubuntu'
+        PEM= 'mumbai.pem'
+
     }
     stages {
         stage('CI: Checkout') {
@@ -43,18 +46,18 @@ pipeline {
                 script {
                     // Docker login for deployment (ensure same Docker credentials)
                     withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                        sh "ssh -o StrictHostKeyChecking=no user@${TARGET_HOST} 'docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD} ${DOCKER_REGISTRY}'"
+                        sh "ssh -i ${PEM} ${USER}@${TARGET_HOST} 'docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD} ${DOCKER_REGISTRY}'"
                     }
 
                     // Transfer the .env file to the target host
-                    sh "scp ${ENV_FILE} user@${TARGET_HOST}:/home/ubuntu/.env"
+                    sh "scp ${ENV_FILE} ${USER}@${TARGET_HOST}:/home/ubuntu/.env"
                     
                     // Pull the Docker images on the Target VM
-                    sh "ssh -o StrictHostKeyChecking=no user@${TARGET_HOST} 'docker pull ${DOCKER_REGISTRY}/${DOCKER_REPO}/${CLIENT_IMAGE}:${IMAGE_TAG}'"
-                    sh "ssh -o StrictHostKeyChecking=no user@${TARGET_HOST} 'docker pull ${DOCKER_REGISTRY}/${DOCKER_REPO}/${SERVER_IMAGE}:${IMAGE_TAG}'"
+                    sh "ssh -i ${PEM} ${USER}@${TARGET_HOST} 'docker pull ${DOCKER_REGISTRY}/${DOCKER_REPO}/${CLIENT_IMAGE}:${IMAGE_TAG}'"
+                    sh "ssh -i ${PEM} ${USER}@${TARGET_HOST} 'docker pull ${DOCKER_REGISTRY}/${DOCKER_REPO}/${SERVER_IMAGE}:${IMAGE_TAG}'"
                     
                     // Deploy the images using docker-compose on the Target VM
-                    sh "ssh -o StrictHostKeyChecking=no user@${TARGET_HOST} 'docker-compose -f ${COMPOSE_FILE} up -d'"
+                    sh "ssh -i ${PEM} ${USER}@${TARGET_HOST} 'docker-compose -f ${COMPOSE_FILE} up -d'"
                 }
             }
         }
