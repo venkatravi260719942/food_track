@@ -47,10 +47,11 @@ pipeline {
         stage('SSH Docker Login') {
             steps {
                 script {
+                    withCredentials([string(credentialsId: 'DOCKERHUB_CREDENTIAL_ID', variable: 'DOCKER_PASSWORD')]) {
                     sh "sudo chmod 400 ${PEM}"
                     sh '''
                         ssh -i ${PEM} ${USER}@${TARGET_HOST} "echo '$DOCKER_PASSWORD' | nohup docker login -u ${DOCKER_USERNAME} --password-stdin > /dev/null 2>&1 &"
-                    '''
+                    '''                    
                 }
             }
         }        
