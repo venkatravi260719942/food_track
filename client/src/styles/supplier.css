@@ -1,0 +1,54 @@
+.scontent{
+margin-left: 30px;
+display: flex;
+
+    
+}
+.sborder{
+    border: 0.25px solid#c5c3c3;
+    /* justify-content: center; */
+    width: 50%;
+display: flex;
+    border-radius: 4px;
+}
+.supplier_head{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.nes{
+    display: flex;
+    gap:10px
+}
+.dash_body{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.slf{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50%;
+    width: 90%;
+   }
+.supplierbutton{
+    display: flex;
+    width: 150%;
+    justify-content: flex-end
+}
+.vsupplier_head{
+       margin-bottom: 20px;
+       margin-top: 20px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+        }
+        .edit-supplier-form{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }

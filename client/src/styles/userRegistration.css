@@ -1,0 +1,93 @@
+.background-picture {
+  background-image: url("../assets/images/ft_bg.png");
+  background-size: 180%;
+  width: 100vw;
+  height: 100vh;
+}
+.reg_logo {
+  padding: 45px 0 0 50px;
+  width: 316px;
+  height: 79px;
+}
+.reg_box {
+  align-self: center;
+  padding-left: 280px;
+}
+.registration_form {
+  padding: 32px;
+  width: 650px;
+  background-color: #ffffff;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 10px;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 89%;
+}
+.reg_box h2 {
+  color: #000000;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: bold;
+  padding-bottom: 44px;
+}
+.reg_box h2::first-letter {
+  text-decoration: underline rgb(37, 37, 235);
+  text-underline-offset: 10px;
+}
+.formField {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 33px;
+  column-gap: 16px;
+}
+.last_formField {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+  padding-bottom: 16px;
+}
+.reg_textfield [type="number"]::-webkit-inner-spin-button,
+.reg_textfield [type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+.reg_textbox {
+  display: flex;
+  flex-direction: column;
+}
+.ur_quotebox {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-content: center;
+  justify-content: center;
+  padding-left: 200px;
+  row-gap: 94px;
+}
+.ur_quote1 h5 {
+  font-size: 28px;
+  padding-bottom: 3px;
+}
+.ur_quote2 h5 {
+  font-size: 28px;
+  padding-bottom: 3px;
+}
+
+.ur_quote1 p {
+  font-size: 20px;
+}
+.ur_quote2 {
+  font-size: 20px;
+}
+.ur_register_linktag {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.reg_signIn {
+  align-content: end;
+}
+.reg_signIn p {
+  color: #fa2f2f;
+  cursor: pointer;
+}

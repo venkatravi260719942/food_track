@@ -1,0 +1,21 @@
+export default {
+  type: "object",
+  properties: {
+    organisationId: { type: "integer" },
+    email: { type: "string", format: "email" },
+    companyName: { type: "string" },
+    contactNumber: { type: "integer" },
+    state: { type: "string" },
+    country: { type: "string" },
+    language: { type: "string" },
+    companySize: { type: "string" },
+    createdBy: { type: "string" },
+    createdDate: { type: "string", format: "date-time" },
+    updatedBy: { type: "string" },
+    updatedDate: { type: "string", format: "date-time" },
+    tenantId: { type: "string" },
+    primaryInterest: { type: "string" },
+  },
+  required: ["email"],
+  additionalProperties: false,
+};

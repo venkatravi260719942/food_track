@@ -1,0 +1,133 @@
+.dasboardHome {
+  display: flex;
+  flex-direction: row;
+}
+.contentbar {
+  display: flex;
+  flex-direction: column;
+  flex: 4;
+}
+
+.dashboard_admin {
+  position: relative;
+  height: 89.9vh;
+  overflow: scroll;
+}
+
+.dashboard_bg_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/images/dashboard_bg.png");
+  background-repeat: repeat;
+  background-size: 100px 100px;
+  opacity: 0.2;
+}
+.dashboardBody {
+  background: transparent;
+}
+
+.dashboard_admin_content {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard_admin h1 {
+  font-family: "Source Sans Pro", sans-serif;
+  color: black;
+  font-weight: 500;
+  padding-left: 3vw;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+.dashboard_admin h3 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 450;
+  padding-left: 3vw;
+  padding-bottom: 5px;
+}
+.dashboard_admin h2 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: larger;
+  font-weight: 800;
+  padding-bottom: 2vh;
+  padding-left: 2vw;
+}
+.dash_box {
+  height: 75vh;
+  background-color: #ffffff;
+  opacity: 1;
+}
+.branch_list {
+  overflow-x: auto;
+  display: -webkit-inline-box;
+  width: 70vw;
+  margin-left: 2vw;
+  height: 25vh;
+}
+.demand_forecasting {
+  margin-left: 20px;
+  position: relative;
+  z-index: 3; /* Ensure forecast card is above the overlay */
+  margin-top: 20px;
+  max-height: 300px;
+  /* overflow-y: scroll; */
+}
+.forecast_card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-height: 90vh;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+.branch_list::-webkit-scrollbar {
+  display: none;
+}
+.branch_item {
+  background-color: #ffffff;
+  border: 1px solid #00000029;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  height: 20vh;
+  width: 13vw;
+  margin: 5px;
+  cursor: pointer;
+}
+.branch_item:hover {
+  padding: 5px;
+  transition: 0.25s;
+  border: 5px solid #0e0d0d;
+}
+.modal_content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height: 400px;
+  max-width: calc(100% - 40px);
+  max-height: calc(100% - 40px);
+  overflow-y: auto;
+}
+
+.modal_content > * {
+  margin-bottom: 20px;
+}
+
+.modal_content button {
+  margin-top: 20px;
+}
+.dash_textfield [type="number"]::-webkit-inner-spin-button,
+.dash_textfield [type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

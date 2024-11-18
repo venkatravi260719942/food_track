@@ -1,0 +1,72 @@
+.sales-forecast {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  height: 90vh;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sales-forecast::-webkit-scrollbar {
+  display: none;
+}
+
+.forecast-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.chart-container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  /* height: 100vh; */
+  padding: 20px;
+}
+
+.chart-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  align-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex: 1;
+}
+
+/* styles.css */
+.date-picker-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.date-picker-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-picker-input {
+  padding: 0.5rem;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 150px;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+}
+.rotated-text {
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
+}

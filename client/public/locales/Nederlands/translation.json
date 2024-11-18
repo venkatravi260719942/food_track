@@ -1,0 +1,459 @@
+{
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "userManagement": "Gebruikersbeheer",
+    "productManagement": "Productbeheer",
+    "product": "Product",
+    "inventory": "Inventaris",
+    "supplierManagement": "Leveranciersbeheer",
+    "finance": "Financiën",
+    "receipts": "Ontvangsten",
+    "invoice": "Factuur",
+    "monthlyReports": "Maandelijkse rapporten",
+    "reports": "Rapporten",
+    "logout": "Uitloggen",
+    "rawMaterial": "Grondstof",
+    "foodItems": "Voedselartikelen",
+    "pos": "POS-systeem",
+    "floorPlanning": "Vloerplanning",
+    "orderProcessing": "Orderverwerking"
+  },
+  "dashboard": {
+    "hello": "Hallo",
+    "button": {
+      "addBranch": "Filiaal toevoegen"
+    }
+  },
+  "addBranch": {
+    "alert": {
+      "fileSizeError": "De bestandsgrootte moet groter zijn dan 10 kb",
+      "saving": "Besparing...",
+      "success": "Succes",
+      "defaultSuccess": "De operatie was succesvol.",
+      "error": "Fout",
+      "submitError": "Er is een fout opgetreden tijdens het indienen."
+    },
+    "label": {
+      "branchName": "Filiaalnaam",
+      "numberOfEmployees": "Aantal werknemers",
+      "branchOwnerName": "Naam filiaaleigenaar",
+      "country": "Land",
+      "contactNumber": "Contactnummer",
+      "email": "E-mail",
+      "address": "Adres",
+      "notes": "Opmerkingen",
+      "manager": "Manager"
+    },
+    "errors": {
+      "branchName": {
+        "branchNameIsRequired": "Filiaalnaam is vereist",
+        "invalidFormat": "ongeldig formaat"
+      },
+      "address": {
+        "addressIsRequired": "Adres is vereist",
+        "invalidFormat": "ongeldig formaat"
+      },
+      "contactNumber": {
+        "contactNumberIsRequired": "Contactnummer is vereist",
+        "invalidContactNumberFormat": "Ongeldig contactnummerformaat"
+      },
+      "branchOwnerName": {
+        "branchOwnerNameIsRequired": "Naam van filiaaleigenaar is vereist",
+        "invalidFormat": "ongeldig formaat"
+      },
+      "noOfEmployees": {
+        "numberOfEmployeesIsRequired": "Aantal werknemers is vereist"
+      },
+      "countryId": {
+        "countryIsRequired": "Land is vereist"
+      },
+      "email": {
+        "emailIsRequired": "E-mail is vereist",
+        "invalidEmailFormat": "Ongeldig e-mailformaat"
+      }
+    },
+    "text": {
+      "addNewBranch": "Nieuwe tak toevoegen",
+      "manageBranch": "Beheer filiaal",
+      "manager": "Manager",
+      "branchAddedSuccessfull": "Tak succesvol toegevoegd",
+      "addImage": "Selecteer een afbeelding om te uploaden"
+    },
+    "buttons": {
+      "addBranch": "VOEG TAK TOE",
+      "save": "REDDEN",
+      "cancel": "ANNULEREN",
+      "saveBtn": "Besparing",
+      "successAlert": "Succes",
+      "errorAlert": "Er is een fout opgetreden",
+      "modalboxTitle": "Bevestiging",
+      "modalboxContent": "Weet u zeker dat u deze tak wilt toevoegen?",
+      "modalboxEditContent": "Weet u zeker dat u de filiaalgegevens wilt bewerken?",
+      "modalboxeditContent": "De inhoud van uw modale boxbewerking komt hier terecht."
+    }
+  },
+  "finance": {
+    "text": {
+      "receipt": "Ontvangst",
+      "searchForAReceipt": "Zoek naar een ontvangstbewijs",
+      "filter": "Filter",
+      "dateRange": "Datumbereik",
+      "category": "Categorie",
+      "status": "Status",
+      "supplierName": "Naam leverancier",
+      "phone": "Telefoon",
+      "email": "E-mail",
+      "date": "Datum",
+      "time": "Tijd",
+      "branch": "Tak",
+      "invoice": "Factuur",
+      "searchForAnInvoice": "Zoek een factuur",
+      "rowsPerPage": "Rijen per pagina"
+    },
+    "tableHeadings": {
+      "receiptNo": "ONTVANGSTNR",
+      "issuedDate": "UITGEGEVEN DATUM",
+      "arrivedDate": "AANGEKOMEN DATUM",
+      "slNo": "SL-NR",
+      "productCode": "PRODUCTCODE",
+      "productName": "PRODUCTNAAM",
+      "quantity": "HOEVEELHEID",
+      "price": "PRIJS"
+    },
+    "buttons": {
+      "applyNow": "Solliciteer NU",
+      "reset": "Opnieuw instellen",
+      "comment": "OPMERKING",
+      "export": "EXPORTEREN",
+      "markAsVerified": "MARKEER ALS GEVERIFIEERD",
+      "flagForReview": "VLAG VOOR BEOORDELING",
+      "cancel": "ANNULEREN",
+      "submit": "INDIENEN"
+    }
+  },
+  "generalSettings": {
+    "text": {
+      "generalSettings": "Algemene instellingen",
+      "users": "Gebruikers",
+      "inviteNewUsers": "Nodig nieuwe gebruikers uit",
+      "pendingInvitations": "Openstaande uitnodigingen",
+      "emailAddress": "E-mailadres",
+      "language": "Taal",
+      "availableLanguages": "Beschikbare talen",
+      "generalSettingsUsers": "Algemene instellingen - gebruikers",
+      "activeUsers": "Actieve gebruikers",
+      "rowsPerPage": "Rijen per pagina",
+      "changeLangDialog": "Weet u het zeker. Wilt u de standaardtaal wijzigen?",
+      "name": "Naam",
+      "authentication": "Laatste authenticatie",
+      "noDataFound!": "Geen gegevens gevonden!"
+    },
+    "label": {
+      "status": "Status"
+    },
+    "statusDropdown": {
+      "pending": "In behandeling",
+      "confirmed": "Bevestigd"
+    },
+    "buttons": {
+      "manage": "Beheren",
+      "addLanguage": "Taal toevoegen",
+      "setDefault": "Instellen als standaard",
+      "yesBtn": "Ja",
+      "noBtn": "Nee",
+      "reset": "Opnieuw instellen"
+    },
+    "errors": {
+      "validEmail": "Voer een geldig e-mailadres in"
+    }
+  },
+  "Organisation": {
+    "label": {
+      "Company name": "Bedrijfsnaam",
+      "Mobile number": "Mobiel nummer",
+      "Email": "E-mail",
+      "Company Size": "Bedrijfsgrootte",
+      "Primary interest": "Primair belang",
+      "Country": "Land",
+      "State": "Staat",
+      "Language": "Taal"
+    },
+    "buttons": {
+      "Register": "Register",
+      "Back": "Rug"
+    },
+    "errors": {
+      "email": {
+        "Invalid email address": "Ongeldig e-mailadres",
+        "Email is required": "E-mail is vereist"
+      },
+      "companyName": {
+        "Invalid format": "Ongeldig formaat",
+        "Company name is required": "Bedrijfsnaam is vereist"
+      },
+      "contactNumber": {
+        "Enter valid contact number": "Voer een geldig contactnummer in",
+        "Contact number is required": "Contactnummer is vereist"
+      },
+      "state": {
+        "State is required": "Staat is vereist"
+      },
+      "country": {
+        "Country is required": "Land is vereist"
+      },
+      "companySize": {
+        "Company size is required": "Bedrijfsgrootte is vereist"
+      },
+      "language": {
+        "Language is required": "Taal is vereist"
+      },
+      "primaryInterest": {
+        "Primary interest is required": "Er is een primair belang vereist"
+      }
+    },
+    "text": {
+      "Welcome": "Welkom",
+      "Set up your Organisation profile": "Stel uw organisatieprofiel in",
+      "ORGANIZATION DETAILS": "ORGANISATIEGEGEVENS",
+      "*You can update some of the preferences from the settings": "*Je kunt een aantal voorkeuren bijwerken via de instellingen"
+    }
+  },
+  "product": {
+    "label": {
+      "search": "Zoekopdracht",
+      "filterByCategory": "Filter op categorie",
+      "productName": "Productnaam",
+      "category": "Categorie",
+      "unitOfMeasure": "Maateenheid",
+      "costPrice": "Kostprijs",
+      "salesPrice": "Verkoopprijs",
+      "productId": "Product-ID",
+      "price": "Prijs",
+      "description": "Beschrijving",
+      "thresholdLimit": "Drempellimiet"
+    },
+    "errors": {
+      "name": {
+        "productNameIsRequired": "Productnaam is vereist",
+        "productNameCanOnlyContainLettersAndNumbers": "De productnaam mag alleen letters en cijfers bevatten"
+      },
+      "costPrice": {
+        "costPriceIsRequired": "Kostprijs is vereist"
+      },
+      "description": {
+        "descriptionCanOnlyContainLettersAndNumbers": "Beschrijving mag alleen letters en cijfers bevatten"
+      },
+      "categoryId": {
+        "categoryIsRequired": "Categorie is vereist"
+      },
+      "unitOfMeasure": {
+        "unitOfMeasureIsRequired": "Maateenheid is vereist"
+      }
+    },
+    "buttons": {
+      "addProducts": "Producten toevoegen",
+      "add": "TOEVOEGEN",
+      "cancel": "ANNULEREN",
+      "selectAll": "SELECTEER ALLES",
+      "saveChanges": "BEWAAR WIJZIGINGEN",
+      "delete": "VERWIJDEREN",
+      "confirm": "BEVESTIGEN",
+      "deselectAll": "Deselecteer Alles",
+      "save": "REDDEN"
+    },
+    "text": {
+      "products": "Producten",
+      "edit": "Product bewerken",
+      "rowsPerPage": "Rijen per pagina",
+      "addProducts": "Producten toevoegen",
+      "productImage": "Productafbeelding",
+      "canBePurchased": "Kan worden gekocht",
+      "canBeSold": "Kan verkocht worden",
+      "eitherCanBePurchasedOrCanBeSoldMustBeSelected": "U moet 'Kan worden gekocht' of 'Kan worden verkocht' selecteren",
+      "productSuccessfullyAdded": "Product succesvol toegevoegd",
+      "errorAddingProduct": "Fout bij het toevoegen van product",
+      "confirmProductAddition": "Bevestig producttoevoeging",
+      "areYouSureYouWantToAddThisProduct": "Weet u zeker dat u dit product wilt toevoegen?",
+      "confirmDelete": "Bevestig verwijderen",
+      "areYouSureYouWantToDeleteSelectedProducts": "Weet u zeker dat u geselecteerde producten wilt verwijderen?",
+      "areYouSureYouWantToSaveTheChanges": "Weet u zeker dat u de wijzigingen wilt opslaan?",
+      "yourChangesWillBeSaved": "Uw wijzigingen worden opgeslagen.",
+      "productsSuccessfullyAdded": "Product succesvol toegevoegd",
+      "dragImageHere": "Sleep afbeelding hierheen",
+      "browseImage": "Blader door afbeelding",
+      "authentication": "Authenticatie",
+      "productName": "Productnaam: {{name}}",
+      "productId": "Product-ID: {{id}}",
+      "price": "Prijs: {{price}}"
+    }
+  },
+  "userManagement": {
+    "label": {
+      "search": "Zoekopdracht",
+      "role": "Rol",
+      "branch": "Tak",
+      "status": "Status"
+    },
+    "tableHeading": {
+      "username": "GEBRUIKERSNAAM",
+      "emailAddress": "E-MAILADRES",
+      "action": "ACTIE",
+      "role": "ROL",
+      "branch": "TAK"
+    },
+    "buttons": {
+      "update": "UPDATE",
+      "assign": "TOEWIJZEN",
+      "delete": "VERWIJDEREN",
+      "cancel": "ANNULEREN",
+      "next": "VOLGENDE",
+      "back": "RUG",
+      "reset": "RESET",
+      "confirm": "BEVESTIGEN",
+      "close": "DICHTBIJ"
+    },
+    "status": {
+      "assigned": "TOEGEWEZEN",
+      "unassigned": "NIET TOEGEWEZEN"
+    },
+    "text": {
+      "userManagement": "Gebruikersbeheer",
+      "confirmAssign": "Bevestig de toewijzing",
+      "confirmAssignMessage": "Weet u zeker dat u deze rol en vertakking wilt toewijzen?",
+      "confirmUpdate": "Bevestig update",
+      "confirmUpdateMessage": "Weet u zeker dat u deze rol en vertakking wilt bijwerken?",
+      "confirmDel": "Bevestig verwijderen",
+      "confirmDelDialog": "Weet je zeker dat je wilt verwijderen?",
+      "conflict": "Managerconflict",
+      "conflictDialog": "Er bestaat al een manager voor deze vestiging.",
+      "notFound": "Geen gebruikers gevonden."
+    },
+    "roleDropdown": {
+      "manager": "Manager",
+      "chef": "Chef",
+      "operator": "Exploitant"
+    }
+  },
+  "supplier": {
+    "tableHeading": {
+      "supplierId": "Leveranciers-ID",
+      "supplierName": "Leveranciersnaam",
+      "email": "E-mail",
+      "contactNumber": "Telefoonnummer",
+      "categoryName": "Categorie"
+    },
+    "label": {
+      "supplierName": "Leveranciersnaam",
+      "supplierCategory": "Leverancierscategorie",
+      "productCategory": "Productcategorie",
+      "product": "Product",
+      "email": "E-mail",
+      "phoneNumber": "Telefoonnummer",
+      "address": "Adres",
+      "location": "Locatie"
+    },
+    "button": {
+      "next": "Volgende",
+      "addSupplier": "Leverancier toevoegen"
+    },
+    "error": {
+      "supplierNameIsRequired": "Leveranciersnaam is vereist",
+      "supplierCategoryIsRequired": "Leverancierscategorie is vereist",
+      "emailIsRequired": "E-mail is vereist",
+      "phoneNumberIsRequired": "Telefoonnummer is vereist",
+      "enterYourAddress": "Voer uw adres in",
+      "locationIsRequired": "Locatie is vereist",
+      "atLeastOneProductIsRequired": "Er is minimaal één product vereist",
+      "invalidEmailAddress": "Ongeldig e-mailadres",
+      "enterAValidPhoneNumber": "Voer een geldig telefoonnummer in"
+    },
+    "text": {
+      "addNewSupplier": "Nieuwe leverancier toevoegen",
+      "viewSuppliers": "Bekijk leveranciers"
+    }
+  },
+  "bankDetails": {
+    "text": {
+      "bankDetails": "Bankgegevens",
+      "addNewSupplier": "Nieuwe leverancier toevoegen",
+      "viewSuppliers": "Bekijk leveranciers",
+      "editSupplier": "Leverancier bewerken",
+      "supplierDetailsAddedSuccessfully!": "Leveranciersgegevens succesvol toegevoegd!",
+      "addingDetails": "Er is een fout opgetreden bij het toevoegen van details!"
+    },
+    "error": {
+      "supplierNameIsRequired": "Leveranciersnaam is vereist",
+      "supplierCategoryIsRequired": "Leverancierscategorie is vereist",
+      "emailIsRequired": "E-mail is vereist",
+      "phoneNumberIsRequired": "Telefoonnummer is vereist",
+      "enterYourAddress": "Voer uw adres in",
+      "locationIsRequired": "Locatie is vereist",
+      "atLeastOneProductIsRequired": "Er is minimaal één product vereist",
+      "invalidEmailAddress": "Ongeldig e-mailadres",
+      "enterAValidPhoneNumber": "Voer een geldig telefoonnummer in",
+      "ibanIsRequired": "IBAN is vereist",
+      "bicIsRequired": "BIC is vereist",
+      "enterAValidIban": "Vul een geldig IBAN in",
+      "enterAValidBic": "Voer een geldige BIC in",
+      "taxNumberIsRequired": "Belastingnummer is vereist",
+      "bankNameIsRequired": "Banknaam is vereist",
+      "accountNumberIsRequired": "Rekeningnummer is vereist",
+      "ifscCodeIsRequired": "IFSC-code is vereist"
+    },
+    "label": {
+      "taxNumber": "Belastingnummer",
+      "bankName": "Banknaam",
+      "accountNumber": "Rekeningnummer",
+      "ifscCode": "IFSC-code",
+      "iban": "IBAN",
+      "bic": "BIC"
+    },
+    "button": {
+      "submitDetails": "Details indienen",
+      "back": "Rug"}
+   
+  },
+  "FloorPlanning": {
+    "text": {
+      "Floor details": "Vloerdetails"
+    },
+    "label": {
+      "Floor name": "Naam verdieping",
+      "Dimensions": "Afmetingen"
+    }
+  },
+  "receipts": {
+    "columns": {
+      "productName": "PRODUCTNAAM",
+      "supplierName": "NAAM VAN LEVERANCIER",
+      "currentQty": "HUIDIGE AANTAL",
+      "orderQty": "BESTEL AANTAL",
+      "stockLevel": "VOORRAADNIVEAU",
+      "action": "ACTIE"
+    },
+    "labels": {
+      "supplier": "Leverancier",
+      "outOfStock": "Niet op voorraad",
+      "criticalStock": "Kritieke voorraad",
+      "lowStock": "Lage voorraad"
+    },
+    "buttons": {
+      "add": "TOEVOEGEN",
+      "order": "Volgorde"
+    },
+    "text": {
+      "lowStockProducts": "Producten met weinig voorraad",
+      "stock": "Voorraad",
+      "filter": "Filter",
+      "all": "Alle",
+      "lowStock": "Lage voorraad",
+      "criticalStock": "Kritieke voorraad",
+      "outOfStock": "Niet op voorraad",
+      "cart": "Winkelwagen",
+      "noItemsInTheCart": "Geen artikelen in de winkelwagen",
+      "productName": "Productnaam",
+      "quantity": "Hoeveelheid"
+    }
+  }
+}
+

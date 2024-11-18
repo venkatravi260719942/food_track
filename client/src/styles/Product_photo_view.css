@@ -1,0 +1,15 @@
+.photoview{
+display: flex;
+flex-direction: column;    height: 75vh;
+overflow: auto;
+}
+.product_card{
+    cursor: pointer;
+}
+.singleproduct{
+    display: flex;
+}
+.search-bar{
+    display: flex;
+    gap:20px
+}

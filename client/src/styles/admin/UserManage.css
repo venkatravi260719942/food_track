@@ -1,0 +1,22 @@
+.filter_bar {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+}
+.delete_button {
+  padding-left: 1vw;
+}
+.next_back_button {
+  display: flex;
+  justify-content: end;
+  padding-right: 10px;
+}
+.tableContent {
+  height: 70vh;
+  /* width: 80vw; */
+  overflow-y: scroll;
+}
+.overall_userManagement {
+  height: 89.8vh;
+  /* width: 82vw; */
+}

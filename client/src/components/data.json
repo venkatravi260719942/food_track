@@ -1,0 +1,9 @@
+[
+  { "id": 1, "name": "User management", "url": "admin/user_manage" },
+  { "id": 2, "name": "Product", "url": "admin/product_manage" },
+  { "id": 3, "name": "Add product", "url": "admin/add_product" },
+  { "id": 4, "name": "Supplier", "url": "admin/supplier" },
+  { "id": 5, "name": "Add branch", "url": "admin/add_branch" },
+  { "id": 6, "name": "Receipts", "url": "admin/finance/Receipt" },
+  { "id": 7, "name": "Invoice", "url": "/admin/finance/Invoice" }
+]

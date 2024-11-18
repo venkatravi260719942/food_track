@@ -1,0 +1,24 @@
+
+.low-stock {
+  background-color:#F8D7D6; /* Yellow */
+  color: black;
+    border-radius: 5px;
+    font-size: small;
+    height: 30px;
+    width: 80px;
+
+    border-color: #F3C6C5;
+    
+  }
+  
+  .critical-stock {
+    background-color: #FBEEDF; /* Red */
+
+    color: black;
+    border-radius: 5px;
+    font-size: small;
+    width: 80px;
+    height: 30px;
+
+  }
+  

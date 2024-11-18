@@ -1,0 +1,101 @@
+.product_header {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+.fa-fw :hover {
+  color: #74797b;
+}
+
+.AP_productImgHolder {
+  width: 220px;
+  height: 220px;
+  border: 2px dashed #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+#fileuploader {
+  background-color: transparent;
+}
+.AP_addcancel {
+  display: flex;
+  gap: 10px;
+  padding: 20px 0 0 0;
+}
+.AP_unitandthreshold {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.AP_csproduct {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.AP_units_tags {
+  padding-top: 20px;
+}
+.AP_product_rightcontent {
+  width: 845px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border: 0.25px solid#c5c3c3;
+  border-radius: 4px;
+  background-color: white;
+  padding: 25px;
+}
+.AP_addProductTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  padding: 7px 0px 20px 10px;
+  font-weight: bold;
+}
+.AP_product_body {
+  width: 845px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  background-color: white;
+  border: 0.25px solid#c5c3c3;
+  border-radius: 4px;
+}
+.AP_soldpurchasecb {
+  display: flex;
+  gap: 20px;
+}
+.AP_imagep {
+  display: flex;
+  gap: 80px;
+}
+.AP_form {
+  background-color: white;
+  height: 100%;
+  padding: 20px 0 0 20px;
+}
+.AP_product_title {
+  display: flex;
+}
+.AP_back-icon {
+  height: 35px;
+  width: 35px;
+  align-content: center;
+  justify-self: center;
+  border: 1px solid #cfcfcf;
+  border-radius: 5px;
+}
+.AP_product_category_tags {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+.AP_description_tag {
+  padding: 40px 0 24px 0;
+}

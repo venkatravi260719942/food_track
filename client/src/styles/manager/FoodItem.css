@@ -1,0 +1,133 @@
+.form-container {
+  display: flex;
+  align-items: flex-start;
+}
+.currentViewBtn.active {
+  background-color: #0a8ccd;
+  transition: 0.25ms;
+}
+.currentViewBtn {
+  background-color: #ddd;
+}
+
+.image-upload {
+  padding: 0px 82px 0px 92px;
+}
+
+.upload-button {
+  display: block;
+  padding-top: 20px;
+}
+
+.browse-text {
+  font-size: 12px;
+}
+
+.sku_itemname {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+}
+
+.FI_item_price {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+}
+
+.FI_form-fields {
+  margin-top: -17px;
+}
+
+.FI_button-group {
+  display: flex;
+  justify-content: end;
+  padding: 38px 0px 0px 0px;
+}
+
+.FI_Item_image {
+  height: 152px;
+  width: 157px;
+  border-radius: 10px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.FI_productPageTitle {
+  display: flex;
+  padding-left: 35px;
+  padding-top: 51px;
+}
+
+.FI_search_and_buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 28px 0px 35px;
+}
+
+.FI_search_content {
+  display: flex;
+  padding: 26px 0px 24px 0px;
+  gap: 14px;
+}
+.FI_view_buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.FI_fooditemstable {
+  height: 65vh;
+  width: 100%;
+  padding: 0px 28px 0px 35px;
+}
+.fooditem_add {
+  height: 36px;
+  width: 96px;
+  background-color: #1976d2;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.FI_backarrowAndHeading {
+  display: flex;
+  padding: 51px 0px 60px 35px;
+}
+.FI_heading {
+  margin-left: 30px;
+}
+
+.FI_photoview {
+  display: flex;
+  flex-direction: column;
+  height: 67vh;
+  overflow: auto;
+  width: 100%;
+}
+.FI_item_card {
+  cursor: pointer;
+}
+.FI_image_layout {
+  border-radius: 10px;
+  box-shadow: 0px 8px 8px 2px rgba(0, 0, 0, 0.2);
+  height: 152px;
+  width: 157px;
+}
+
+.custom-row {
+  display: flex;
+  align-items: center;
+  padding: 8px 0 11px 0;
+  border-bottom: 1px solid rgba(224, 224, 224, 1);
+}
+
+.FI_gridContent {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.FI_producttable_header {
+  height: 100%;
+}

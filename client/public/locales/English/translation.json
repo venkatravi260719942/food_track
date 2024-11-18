@@ -1,0 +1,693 @@
+{
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "userManagement": "User Management",
+    "productManagement": "Product Management",
+    "product": "Product",
+    "inventory": "Inventory",
+    "supplierManagement": "Supplier Management",
+    "finance": "Finance",
+    "receipts": "Receipts",
+    "invoice": "Invoice",
+    "monthlyReports": "Monthly reports",
+    "reports": "Reports",
+    "logout": "Logout",
+    "rawMaterial": "Raw Material",
+    "foodItems": "Food Items",
+    "pos": "POS System",
+    "floorPlanning": "Floor Planning",
+    "orderProcessing": "Order Processing"
+  },
+  "dashboard": {
+    "hello": "Hello",
+    "button": {
+      "addBranch": "Add Branch"
+    }
+  },
+
+  "addBranch": {
+    "alert": {
+      "fileSizeError": "File size should be more than 10kb",
+      "saving": "Saving...",
+      "success": "Success",
+      "defaultSuccess": "Operation was successful.",
+      "error": "Error",
+      "submitError": "An error occurred while submitting."
+    },
+    "label": {
+      "branchName": "Branch Name",
+      "numberOfEmployees": "Number of Employees",
+      "branchOwnerName": "Branch Owner Name",
+      "country": "Country",
+      "contactNumber": "Contact Number",
+      "email": "Email",
+      "address": "Address",
+      "notes": "Notes",
+      "manager": "Manager"
+    },
+    "errors": {
+      "branchName": {
+        "branchNameIsRequired": "Branch Name is required",
+        "invalidFormat": "invalid format"
+      },
+      "address": {
+        "addressIsRequired": "Address is required",
+        "invalidFormat": "invalid format"
+      },
+      "contactNumber": {
+        "contactNumberIsRequired": "Contact Number is required",
+        "invalidContactNumberFormat": "Invalid contact number format"
+      },
+      "branchOwnerName": {
+        "branchOwnerNameIsRequired": "Branch Owner Name is required",
+        "invalidFormat": "invalid format"
+      },
+      "noOfEmployees": {
+        "numberOfEmployeesIsRequired": "Number of Employees is required"
+      },
+      "countryId": {
+        "countryIsRequired": "Country is required"
+      },
+      "email": {
+        "emailIsRequired": "Email is required",
+        "invalidEmailFormat": "Invalid email format"
+      }
+    },
+    "text": {
+      "addNewBranch": "Add New Branch",
+      "manageBranch": "Manage Branch",
+      "manager": "Manager",
+      "branchAddedSuccessfull": "Branch Added Successfully",
+      "addImage": "Please select an image to upload"
+    },
+    "buttons": {
+      "addBranch": "ADD BRANCH",
+      "save": "SAVE",
+      "cancel": "CANCEL",
+      "saveBtn": "Saving",
+      "successAlert": "Success",
+      "errorAlert": "Error occurred",
+      "modalboxTitle": "Confirmation",
+      "modalboxContent": "Are you sure you want to add this branch?",
+      "modalboxEditContent": "Are you sure you want to edit branch details?",
+      "modalboxeditContent": "Your modal box edit content goes here."
+    }
+  },
+  "finance": {
+    "text": {
+      "receipt": "Receipt",
+      "searchForAReceipt": "Search for a receipt",
+      "filter": "Filter",
+      "dateRange": "Date Range",
+      "category": "Category",
+      "status": "Status",
+      "supplierName": "Supplier name",
+      "phone": "Phone",
+      "email": "Email",
+      "date": "Date",
+      "time": "Time",
+      "branch": "Branch",
+      "invoice": "Invoice",
+      "searchForAnInvoice": "Search for an invoice",
+      "rowsPerPage": "Rows per page"
+    },
+    "tableHeadings": {
+      "receiptNo": "RECEIPT NO",
+      "issuedDate": "ISSUED DATE",
+      "arrivedDate": "ARRIVED DATE",
+      "slNo": "SL NO",
+      "productCode": "PRODUCT CODE",
+      "productName": "PRODUCT NAME",
+      "quantity": "QUANTITY",
+      "price": "PRICE"
+    },
+    "buttons": {
+      "applyNow": "APPLY NOW",
+      "reset": "Reset",
+      "comment": "COMMENT",
+      "export": "EXPORT",
+      "markAsVerified": "MARK AS VERIFIED",
+      "flagForReview": "FLAG FOR REVIEW",
+      "cancel": "CANCEL",
+      "submit": "SUBMIT"
+    }
+  },
+  "generalSettings": {
+    "text": {
+      "generalSettings": "General settings",
+      "users": "Users",
+      "inviteNewUsers": "Invite new users",
+      "pendingInvitations": "Pending Invitations",
+      "emailAddress": "Email address",
+      "language": "Language",
+      "availableLanguages": "Available Languages",
+      "generalSettingsUsers": "General settings - users",
+      "activeUsers": "Active users",
+      "rowsPerPage": "Rows per page",
+      "changeLangDialog": "Are you sure Do you want to change default language?",
+      "name": "Name",
+      "authentication": "Latest authentication",
+      "noDataFound!": "No Data Found!"
+    },
+    "label": {
+      "status": "Status"
+    },
+    "statusDropdown": {
+      "pending": "Pending",
+      "confirmed": "Confirmed"
+    },
+    "buttons": {
+      "manage": "Manage",
+      "addLanguage": "Add language",
+      "setDefault": "Set as Default",
+      "yesBtn": "Yes",
+      "noBtn": "No",
+      "reset": "Reset"
+    },
+    "errors": {
+      "validEmail": "Enter a valid email address"
+    }
+  },
+  "Organisation": {
+    "label": {
+      "Company name": "Company name",
+      "Mobile number": "Mobile number",
+      "Email": "Email",
+      "Company Size": "Company Size",
+      "Primary interest": "Primary interest",
+      "Country": "Country",
+      "State": "State",
+      "Language": "Language"
+    },
+    "buttons": {
+      "Register": "Register",
+      "Back": "Back"
+    },
+    "errors": {
+      "email": {
+        "Invalid email address": "Invalid email address",
+        "Email is required": "Email is required"
+      },
+      "companyName": {
+        "Invalid format": "Invalid format",
+        "Company name is required": "Company name is required"
+      },
+      "contactNumber": {
+        "Enter valid contact number": "Enter valid contact number",
+        "Contact number is required": "Contact number is required"
+      },
+      "state": {
+        "State is required": "State is required"
+      },
+      "country": {
+        "Country is required": "Country is required"
+      },
+      "companySize": {
+        "Company size is required": "Company size is required"
+      },
+      "language": {
+        "Language is required": "Language is required"
+      },
+      "primaryInterest": {
+        "Primary interest is required": "Primary interest is required"
+      }
+    },
+    "text": {
+      "Welcome": "Welcome",
+      "Set up your Organisation profile": "Set up your Organisation profile",
+      "ORGANIZATION DETAILS": "ORGANIZATION DETAILS",
+      "*You can update some of the preferences from the settings": "*You can update some of the preferences from the settings"
+    }
+  },
+
+  "product": {
+    "label": {
+      "search": "Search",
+      "filterByCategory": "Filter by Category",
+      "productName": "Product Name",
+      "category": "Category",
+      "unitOfMeasure": "Unit Of Measure",
+      "costPrice": "Cost Price",
+      "salesPrice": "Sales Price",
+      "productId": "Product Id",
+      "price": "Price",
+      "description": "Description",
+      "thresholdLimit": "Threshold Limit"
+    },
+    "errors": {
+      "name": {
+        "productNameIsRequired": "Product name is required",
+        "productNameCanOnlyContainLettersAndNumbers": "Product name can only contain letters and numbers"
+      },
+      "costPrice": {
+        "costPriceIsRequired": "Cost price is required"
+      },
+      "description": {
+        "descriptionCanOnlyContainLettersAndNumbers": "Description can only contain letters and numbers"
+      },
+      "categoryId": {
+        "categoryIsRequired": "Category is required"
+      },
+      "unitOfMeasure": {
+        "unitOfMeasureIsRequired": "Unit of measure is required"
+      }
+    },
+    "buttons": {
+      "addProducts": "Add Products",
+      "add": "ADD",
+      "cancel": "CANCEL",
+      "selectAll": "SELECT ALL",
+      "saveChanges": "SAVE CHANGES",
+      "delete": "DELETE",
+      "confirm": "CONFIRM",
+      "deselectAll": "Deselect All",
+      "save": "SAVE"
+    },
+    "text": {
+      "products": "Products",
+      "edit": "Edit product",
+      "rowsPerPage": "Rows per page",
+      "addProducts": "Add Products",
+      "productImage": "Product Image",
+      "canBePurchased": "Can be Purchased",
+      "canBeSold": "Can be sold",
+      "eitherCanBePurchasedOrCanBeSoldMustBeSelected": "Either Can be Purchased or Can be Sold must be selected",
+      "productSuccessfullyAdded": "Product successfully added",
+      "errorAddingProduct": "Error adding product",
+      "confirmProductAddition": "Confirm Product Addition",
+      "areYouSureYouWantToAddThisProduct": "Are you sure you want to add this product?",
+      "confirmDelete": "Confirm Delete",
+      "areYouSureYouWantToDeleteSelectedProducts": "Are you sure you want to delete selected products?",
+      "areYouSureYouWantToSaveTheChanges": "Are you sure you want to save the changes?",
+      "yourChangesWillBeSaved": "Your changes will be saved.",
+      "productsSuccessfullyAdded": "Product successfully added",
+      "dragImageHere": "Drag Image Here",
+      "browseImage": "Browse Image",
+      "authentication": "Authentication",
+      "productName": "Product Name: {{name}}",
+      "productId": "Product ID: {{id}}",
+      "price": "Price: {{price}}"
+    }
+  },
+  "userManagement": {
+    "label": {
+      "search": "Search",
+      "role": "Role",
+      "branch": "Branch",
+      "status": "Status"
+    },
+    "tableHeading": {
+      "username": "USERNAME",
+      "emailAddress": "EMAIL ADDRESS",
+      "action": "ACTION",
+      "role": "ROLE",
+      "branch": "BRANCH"
+    },
+    "buttons": {
+      "update": "UPDATE",
+      "assign": "ASSIGN",
+      "delete": "DELETE",
+      "cancel": "CANCEL",
+      "next": "NEXT",
+      "back": "BACK",
+      "reset": "RESET",
+      "confirm": "CONFIRM",
+      "close": "CLOSE"
+    },
+    "status": {
+      "assigned": "ASSIGNED",
+      "unassigned": "UNASSIGNED"
+    },
+    "text": {
+      "userManagement": "User Management",
+      "confirmAssign": "Confirm assign",
+      "confirmAssignMessage": "Are you sure you want to assign this role and branch?",
+      "confirmUpdate": "Confirm update",
+      "confirmUpdateMessage": "Are you sure you want to update this role and branch?",
+      "confirmDel": "Confirm Delete",
+      "confirmDelDialog": "Are you sure you want to delete?",
+      "conflict": "Manager Conflict",
+      "conflictDialog": "A manager already exists for this branch.",
+      "notFound": "No users found."
+    },
+    "roleDropdown": {
+      "manager": "Manager",
+      "chef": "Chef",
+      "operator": "Operator"
+    }
+  },
+  "supplier": {
+    "tableHeading": {
+      "supplierId": "Supplier ID",
+      "supplierName": "Supplier Name",
+      "email": "Email",
+      "contactNumber": "Phone Number",
+      "categoryName": "Category"
+    },
+    "label": {
+      "supplierName": "Supplier Name",
+      "supplierCategory": "Supplier Category",
+      "productCategory": "Product Category",
+      "product": "Product",
+      "email": "Email",
+      "phoneNumber": "Phone number",
+      "address": "Address",
+      "location": "Location"
+    },
+    "button": {
+      "next": "Next",
+      "addSupplier": "Add Supplier"
+    },
+    "error": {
+      "supplierNameIsRequired": "Supplier name is required",
+      "supplierCategoryIsRequired": "Supplier category is required",
+      "emailIsRequired": "Email is required",
+      "phoneNumberIsRequired": "Phone number is required",
+      "enterYourAddress": "Enter your address",
+      "locationIsRequired": "Location is required",
+      "atLeastOneProductIsRequired": "At least one product is required",
+      "invalidEmailAddress": "Invalid email address",
+      "enterAValidPhoneNumber": "Enter a valid phone number"
+    },
+    "text": {
+      "addNewSupplier": "Add New Supplier",
+      "viewSuppliers": "View Suppliers"
+    }
+  },
+
+  "bankDetails": {
+    "text": {
+      "bankDetails": "Bank Details",
+      "addNewSupplier": "Add New Supplier",
+      "viewSuppliers": "View Suppliers",
+      "editSupplier": "Edit Supplier",
+      "supplierDetailsAddedSuccessfully!": "Supplier details added successfully!",
+      "addingDetails": "There was an error while adding details!"
+    },
+
+    "error": {
+      "supplierNameIsRequired": "Supplier name is required",
+      "supplierCategoryIsRequired": "Supplier category is required",
+      "emailIsRequired": "Email is required",
+      "phoneNumberIsRequired": "Phone number is required",
+      "enterYourAddress": "Enter your address",
+      "locationIsRequired": "Location is required",
+      "atLeastOneProductIsRequired": "At least one product is required",
+      "invalidEmailAddress": "Invalid email address",
+      "enterAValidPhoneNumber": "Enter a valid phone number",
+      "ibanIsRequired": "IBAN is required",
+      "bicIsRequired": "BIC is required",
+      "enterAValidIban": "Enter a valid IBAN",
+      "enterAValidBic": "Enter a valid BIC",
+      "taxNumberIsRequired": "Tax Number is required",
+      "bankNameIsRequired": "Bank Name is required",
+      "accountNumberIsRequired": "Account Number is required",
+      "ifscCodeIsRequired": "IFSC Code is required"
+    },
+
+    "label": {
+      "taxNumber": "Tax Number",
+      "bankName": "Bank Name",
+      "accountNumber": "Account Number",
+      "ifscCode": "IFSC Code",
+      "iban": "IBAN",
+      "bic": "BIC"
+    },
+    "button": {
+      "submitDetails": "Submit Details",
+      "back": "Back"
+    }
+  },
+  "fooditems": {
+    "tableheading": {
+      "SKU": "SKU",
+      "ITEM NAME": "ITEM NAME",
+      "CATEGORY": "CATEGORY",
+      "DESCRIPTION": "DESCRIPTION",
+      "PRICE": "PRICE"
+    },
+    "text": {
+      "foodItems": "Food Items",
+      "items": "items",
+      "Category": "Category",
+      "typetosearch": "Search Item Name",
+      "addNewFoodItem": "Add New Food Item",
+      "manageFoodItem": "Manage Food Item",
+      "Are you sure you want to delete selected food items?": "Are you sure you want to delete selected food items?"
+    },
+    "buttons": {
+      "addItem": "ADD ITEM",
+      "save": "SAVE",
+      "cancel": "CANCEL"
+    },
+    "lables": {
+      "sku": "SKU",
+      "itemName": "Item Name",
+      "category": "Category",
+      "price": "Price",
+      "description": "Description"
+    }
+  },
+  
+    "floorPlanning": {
+      "text": {
+        "nameTheNewFloor": "Name the new floor",
+        "emptyFloorMessage": "No Floorplan Yet - Start Designing Your Layout!"
+      },
+      "label": {
+        "floorName": "Floor name",
+        "table": "Table",
+        "delete": "Delete",
+        "copy": "Copy",
+        "rename": "Rename",
+        "noOfSeats": "No of seats",
+        "editTableName": "Edit table name",
+        "tableName": "Table Name",
+        "twoSeats": "2 Seats",
+        "fourSeats": "4 Seats",
+        "sixSeats": "6 Seats",
+        "eightSeats": "8 Seats",
+        "editTableView":"Edit Table View"
+      },
+      "buttons": {
+        "save": "Save",
+        "saveCaps": "SAVE",
+        "cancel": "CANCEL",
+        "addFloors": "+ ADD FLOORS",
+        "add": "ADD"
+      },
+      "toast": {
+      "tableAddedSuccessfully": "Table Added Successfully"
+    },
+    "error": {
+      "floorNameIsRequired": "Floor name is required"
+    }
+  },
+  "homepage": {
+    "text": {
+      "hello": "Hello",
+      "overview": "Overview",
+      "chefCount": "Chef Count",
+      "productCount": "Product Count"
+    }
+  },
+  "orderProcessing": {
+    "customerDetails": {
+      "text": {
+        "customerDetails": "Customer Details",
+        "name": "Name",
+        "contactNumber": "Contact Number",
+        "noCustomersAvailable": "No customers available",
+        "addCustomer": "Add Customer",
+        "noItemsFound": "No items found",
+        "searchCustomers": " Search Customers"
+      },
+      "toast": {
+        "loading": "Adding customer details...",
+        "contactRequired": "Contact is required.",
+        "contactInvalid": "Contact must be a valid number.",
+        "success": "Customer added successfully!",
+        "errorFetching": "Error fetching customer data.",
+        "errorAdding": "Error adding customer details.",
+        "errorTryAgain": "Failed to add customer. Please try again."
+      },
+      "button": {
+        "discard": "DISCARD",
+        "add": "ADD"
+      }
+    },
+    "orderDetails": {
+      "text": {
+        "orderDetails": "Order Details",
+        "cartIsEmpty": "Cart is empty",
+        "pending": "PENDING",
+        "inProgress": "IN PROGRESS",
+        "served": "SERVED",
+        "totalItems": "Total Items"
+      },
+      "toast": {
+        "loadingPlaceOrder": "Placing order...",
+        "orderPlacedSuccessfully": "Order placed successfully!",
+        "failedToPlaceOrder": "Failed to place order. Please try again.",
+        "itemDeletedSuccessfully": "Item deleted successfully",
+        "failedToDeleteItem": "Failed to delete item. Please try again.",
+        "itemStatusUpdatedSuccessfully": "Item status updated successfully",
+        "failedToUpdateItemStatus": "Failed to update item status. Please try again."
+      },
+      "button": {
+        "markPickedUp": "MARK PICKED UP",
+        "placeOrder": "Place Order",
+        "bill": "BILL"
+      },
+      "label": {
+        "internalComments": "Internal Comments"
+      }
+    },
+    "transferTable": {
+      "text": {
+        "noOfSeats": "No of seats",
+        "selectATable": "Select a table",
+        "noTablesAvailable": "No tables available"
+      },
+      "button": {
+        "transferTable": "Transfer Table",
+        "cancel": "Cancel"
+      }
+    },
+    "text": {
+      "customerName": "Customer Name:",
+      "tableNo": "Table No:",
+      "markPriority": "Mark Priority",
+      "internalNotes": "Internal Notes",
+      "transferTable": "Transfer Table",
+      "noItemsFound": "No items found"
+    },
+    "button": {
+      "add": "ADD"
+    }
+  },
+  "inventory": {
+    "label": {
+      "inventory": "INVENTORY",
+      "receipts": "RECEIPTS",
+      "orders": "ORDERS",
+      "history": "HISTORY"
+    },
+    "text": {
+      "searchByProductName": "Search by Product Name",
+      "filterByCategory": "Filter by Category",
+      "all": "All",
+      "lastUpdated": "Last Updated: ",
+      "saveChanges": "Save Changes",
+      "productCode": "Product Code",
+      "productName": "Product Name",
+      "category": "Category",
+      "quantity": "Quantity",
+      "unit": "Unit"
+    }
+  },
+  "orders": {
+    "orderDetailsDialog": {
+      "text": {
+        "orderQty": "ORDER QTY",
+        "items": "ITEMS",
+        "unit": "UNIT"
+      },
+      "button": {
+        "close": "Close"
+      }
+    },
+    "orderPayment": {
+      "text": {
+        "paymentForOrder": "Payment for Order",
+        "processingPaymentForOrderId": "Processing payment for order ID: "
+      }
+    },
+    "text": {
+      "pendingOrders": "Pending Orders",
+      "recentDeliveries": "Recent Deliveries",
+      "confirmReceipt": "Confirm Receipt",
+      "confirmReceiptMessage": "Are you sure you want to mark this order as received?",
+      "toggleDeliveriesButtonShow": "View All Deliveries",
+      "toggleDeliveriesButtonHide": "Hide All Deliveries",
+      "orderID": "ORDER ID :",
+      "supplier": "SUPPLIER :",
+      "date": "DATE :",
+      "payment": "PAYMENT",
+      "unknownSupplier": "Unknown Supplier"
+    },
+    "button": {
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "received": "RECEIVED",
+      "pay": "PAY"
+    }
+  },
+
+  "receipt": {
+    "text": {
+      "add": "Add",
+      "order": "Order",
+      "clear": "Clear",
+      "cart": "Cart",
+      "yourCartIsEmpty": "Your cart is empty",
+      "noItemsInTheCart": "Number of items in the cart",
+      "all": "All",
+      "outOfStock": "Out of Stock",
+      "lowStock": "Low Stock",
+      "criticalStock": "Critical Stock",
+      "filter": "Filter",
+      "pleaseSelectSupplier": "Please select a supplier before adding to cart.",
+      "pleaseEnterPositiveQty": "Please enter a positive order quantity.",
+      "pleaseEnterValidQty": "Please enter a valid order quantity.",
+      "noItemsForSupplier": "No items to order for this supplier.",
+      "errorFetchingData": "Error fetching data",
+      "loading": "Loading...",
+      "lowStockProducts": "Low Stock Products"
+    },
+    "labels": {
+      "stock": "Stock",
+      "supplier": "Supplier",
+      "outOfStock": "Out of Stock",
+      "lowStock": "Low Stock",
+      "criticalStock": "Critical Stock"
+    },
+    "buttons": {
+      "add": "ADD",
+      "order": "Order",
+      "clear": "Clear"
+    },
+    "columns": {
+      "productName": "PRODUCT NAME",
+      "supplierName": "SUPPLIER NAME",
+      "currentQty": "CURRENT QTY",
+      "orderQty": "ORDER QTY",
+      "stockLevel": "STOCK LEVEL",
+      "action": "ACTION"
+    }
+  },
+  "Reports": {
+    "text": {
+      "Low_Stocks": "Low Stocks",
+      "Quantity": "Quantity :",
+      "No_low_stock_products": "No low stock products"
+    }
+  },
+
+  "deleteConfirmation": {
+    "title": "Confirm Delete",
+    "message": "Are you sure you want to delete the table {{tableName}}?",
+    "defaultTable": "this table",
+    "cancelButton": "Cancel",
+    "deleteButton": "Delete"
+  },
+
+  "statusButtons": {
+    "allOrder": "ALL ORDER",
+    "newOrder": "NEW ORDER",
+    "priority": "PRIORITY",
+    "inProgress": "IN PROGRESS",
+    "readyForPickup": "READY FOR PICKUP",
+    "completed": "COMPLETED"
+  }
+}

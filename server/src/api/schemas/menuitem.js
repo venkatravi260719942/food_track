@@ -1,0 +1,20 @@
+export default {
+  type: "object",
+  properties: {
+    itemId: { type: "string" },
+    itemName: { type: "string" },
+    categoryId: { type: "string" },
+    itemPrice: { type: "integer" },
+    itemDescription: { type: "string" },
+    branchId: { type: "integer" },
+    itemImageUrl: { type: "string" },
+    menuItemInventoryId: { type: "string" },
+    createdBy: { type: "string" },
+    createdDate: { type: "string", format: "date-time" },
+    updatedBy: { type: "string" },
+    updatedDate: { type: "string", format: "date-time" },
+    sku: { type: "string" },
+  },
+  required: [],
+  additionalProperties: false,
+};

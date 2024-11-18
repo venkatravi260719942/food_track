@@ -1,0 +1,21 @@
+export default {
+  type: "object",
+  properties: {
+    supplierId: { type: "integer" },
+    supplierName: { type: "string" },
+    type: { type: "integer" },
+    branchId: { type: "object" },
+    productId: { type: "string" },
+    email: { type: "string" },
+    contactNumber: { type: "integer" },
+    address: { type: "string" },
+    countryId: { type: "integer" },
+    createdBy: { type: "string" },
+    updatedBy: { type: "string" },
+    createdDate: { type: "string", format: "date-time" },
+    updatedDate: { type: "string", format: "date-time" },
+    organisationId: { type: "integer" },
+  },
+  required: [],
+  additionalProperties: false,
+};

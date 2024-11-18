@@ -1,0 +1,10 @@
+.invoiceheading {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+.ivsearch {
+  display: flex;
+  flex-direction: row;
+}

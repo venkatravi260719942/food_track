@@ -1,0 +1,12 @@
+.producttable {
+  width: 100%;
+  /* overflow: auto; */
+  margin-bottom: 10px;
+}
+.tabletrash {
+  margin: 20px 20px 20px 20px;
+}
+
+.search-bar {
+  margin: 10px 0px 10px 10px;
+}

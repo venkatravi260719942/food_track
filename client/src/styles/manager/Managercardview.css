@@ -1,0 +1,16 @@
+.photoview {
+  display: flex;
+  flex-direction: column;
+  height: 67vh;
+  overflow: auto;
+  width: 100%;
+}
+.product_card {
+  cursor: pointer;
+}
+.PRO_gridContent {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}

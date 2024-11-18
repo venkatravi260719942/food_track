@@ -1,0 +1,16 @@
+.filter-group1 {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px black;
+}
+
+.receiptsearch {
+  display: flex;
+  flex-direction: row;
+}
+
+.receiptheading {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}

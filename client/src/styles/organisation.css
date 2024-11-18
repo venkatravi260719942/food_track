@@ -1,0 +1,88 @@
+.Organisation_1st {
+  background: white;
+  background-image: url("../assets/images/ft_bg.png");
+  background-size: 180%;
+  height: 100vh;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.org_logo {
+  display: flex;
+  align-self: flex-start;
+  justify-content: flex-start;
+  align-items: start;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.welcome_box {
+  text-transform: capitalize;
+  padding: 10px;
+  margin: 20px;
+  font-size: 20px;
+}
+.usernameTitle {
+  font-weight: bolder;
+  color: rgb(28, 28, 28);
+  font-size: 25px;
+}
+.organisationForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #fff; */
+}
+.heading_2nd {
+  font-style: normal normal bold 31px/44px Source Sans Pro;
+  padding-left: 90px;
+  padding-top: 30px;
+}
+
+.heading_3rd {
+  padding-top: 10px;
+  padding-left: 90px;
+  padding-bottom: 20px;
+}
+
+.heading_4th {
+  padding-left: 90px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.company_name_box {
+  padding-left: 90px;
+  padding-bottom: 17px;
+}
+
+.Org_reg_content {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding-left: 90px;
+  padding-right: 90px;
+  column-gap: 17%;
+  row-gap: 15px;
+}
+
+.final_create_org {
+  display: flex;
+  padding-left: 50px;
+  flex-direction: column;
+  height: 88px;
+}
+
+.text_content {
+  margin-left: 90px;
+  padding-block: 1%;
+  color: orangered;
+}
+
+.create_org_button {
+  padding-bottom: 20px;
+  padding-left: 90px;
+  display: flex;
+  flex-direction: row;
+}

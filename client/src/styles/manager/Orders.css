@@ -1,0 +1,40 @@
+.ordersPage {
+  height: 80vh;
+  overflow-y: scroll;
+}
+.MuiContainer-root {
+  margin-top: 20px;
+}
+
+.MuiTable-root {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.recentDeliveriesContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  padding: 0px 0px 15px 39px;
+}
+
+.deliveryCard {
+  padding: 10px;
+  width: 220px;
+  box-sizing: border-box;
+}
+
+.ordersPendingRecent {
+  display: flex;
+  flex-direction: row;
+  column-gap: 25px;
+}
+
+.recentDeliveriesDiv {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}

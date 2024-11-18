@@ -1,0 +1,5 @@
+.statusbuttons {
+  display: flex;
+  gap: 8px;
+  padding-top: 30px;
+}

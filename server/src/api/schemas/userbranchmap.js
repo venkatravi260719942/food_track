@@ -1,0 +1,20 @@
+export default {
+  type: "object",
+  properties: {
+    branchMapId: { type: "integer" },
+    organisationId: { type: "integer" },
+    branchId: { type: "integer" },
+    roleId: { type: "integer" },
+    email: { type: "string", format: "email" },
+    isActive: { type: "boolean" },
+    createdBy: { type: "string" },
+    createdDate: { type: "string", format: "date-time" },
+    updatedBy: { type: "string" },
+    updatedDate: { type: "string", format: "date-time" },
+    tenantId: { type: "string" },
+    isInvited: { type: "boolean" },
+    isAccepted: { type: "boolean" },
+  },
+  // required: ["branchMapId"],
+  additionalProperties: false,
+};

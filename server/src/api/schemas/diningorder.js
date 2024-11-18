@@ -1,0 +1,20 @@
+export default {
+  type: "object",
+  properties: {
+    orderId: { type: "integer" },
+    orderType: { type: "string" },
+    taxAmount: { type: "float" },
+    discountAmount: { type: "float" },
+    hasPriority: { type: "boolean" },
+    tableId: { type: "integer" },
+    customerId: { type: "string" },
+    createdBy: { type: "string" },
+    updatedBy: { type: "string" },
+    totalPrice: { type: "integer" },
+    orderStatus: { type: "string" },
+    createdDate: { type: "string", format: "date-time" },
+    updatedDate: { type: "string", format: "date-time" },
+  },
+  required: [],
+  additionalProperties: false,
+};

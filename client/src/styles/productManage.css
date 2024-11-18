@@ -1,0 +1,70 @@
+.product_btn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 50px 0px 0px;
+  gap: 10px;
+}
+.product_btn button {
+  border-radius: 10px;
+  background-color: #0a8ccd;
+  color: #ffffff;
+  border: none;
+  font-size: medium;
+  height: 43px;
+  width: 100px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.product_manage button {
+  background-color: transparent;
+  color: #0a8ccd;
+  border: 2px solid #0a8ccd;
+}
+/* .product_page{
+    display: flex;
+    flex-direction: column;
+   
+}
+.search_content{
+    display: flex;
+   justify-content:flex-end;
+margin-bottom: 10px;
+}
+.add_button{
+    display: flex;
+    gap: 20px;
+    padding-right: 10px;
+    
+}*/
+
+.search_and_buttons {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  /* margin-right: 10px; */
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.search_content {
+  display: flex;
+  padding: 0px 10px 0px 0px; /* Take up remaining space */
+  width: 60%;
+  gap: 10px;
+}
+
+.view_buttons {
+  display: flex;
+  gap: 10px;
+  margin-right: 9px;
+}
+.product_add {
+  background-color: #0a8ccd;
+  height: 40px;
+  width: 110px;
+  color: white;
+  margin-top: 1px;
+  border-radius: 3px;
+  border: none;
+}

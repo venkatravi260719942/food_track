@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  font-family: "Source Sans 3", sans-serif;
+}
+:root {
+  --color-primary: #fff;
+  --font-family-primary: "Source Sans 3", sans-serif;
+}

@@ -1,0 +1,50 @@
+import { MenuItemCategory } from "../models/init.js";
+import DatabaseError from "../models/error.js";
+
+class MenuItemCategoryService {
+  static async list() {
+    try {
+      return MenuItemCategory.findMany();
+    } catch (err) {
+      throw new DatabaseError(err);
+    }
+  }
+
+  static async getCategoryBasedOnBranch(id) {
+    try {
+      return await MenuItemCategory.findMany({ where: { branchId: id } });
+    } catch (err) {
+      throw new DatabaseError(err);
+    }
+  }
+
+  static async create(data) {
+    try {
+      return await MenuItemCategory.create({ data });
+    } catch (err) {
+      throw new DatabaseError(err);
+    }
+  }
+
+  static async update(id, data) {
+    try {
+      return await MenuItemCategory.update({
+        where: { id },
+        data,
+      });
+    } catch (err) {
+      throw new DatabaseError(err);
+    }
+  }
+
+  static async delete(id) {
+    try {
+      await MenuItemCategory.delete({ where: { id } });
+      return true;
+    } catch (err) {
+      throw new DatabaseError(err);
+    }
+  }
+}
+
+export default MenuItemCategoryService;

@@ -1,0 +1,54 @@
+.addBranch_heading {
+  display: flex;
+  align-items: center;
+  margin-left: 1vw;
+  cursor: pointer;
+}
+
+.addBranch_heading h4 {
+  margin-left: 3px;
+  font-size: larger;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.column {
+  display: flex;
+  width: 80vw;
+  margin-left: 1vw;
+}
+.first_column {
+  flex: 7;
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+}
+.second_column {
+  flex: 2;
+  height: 65vh;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.branch_details_1,
+.branch_details_2 {
+  margin: 10px;
+  border: 0.25px solid #c5c3c3;
+  border-radius: 4px;
+}
+.branch_details_1 {
+  flex: 2;
+}
+.branch_details_2 {
+  flex: 4;
+}
+.branch_textfield {
+  width: 45%;
+}
+.large_textfield {
+  width: 95%;
+}
+.image {
+  width: 260px !important;
+  height: 250px !important;
+}

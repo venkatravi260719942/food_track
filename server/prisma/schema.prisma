@@ -1,0 +1,532 @@
+// Prisma schema file
+// See https://www.prisma.io/docs/concepts/components/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  email         String   @unique @db.VarChar(255)
+  password      String   @db.VarChar(255)
+  token         String   @unique @db.VarChar(255)
+  firstName     String   @db.VarChar(255)
+  lastName      String?
+  contactNumber Int?     @unique
+  createdAt     DateTime @default(now())
+  lastLoginAt   DateTime @default(now())
+  isActive      Boolean  @default(true)
+  createdBy     String?
+  updatedBy     String?
+  languageId    Int?     @unique
+
+  userBranchMap UserBranchMap[]
+  Language      Language[]
+
+  @@index([email])
+  @@index([token])
+  @@index([languageId])
+}
+
+model CountryAndState {
+  countryId          Int      @unique @default(autoincrement())
+  countriesStateName String?
+  isParent           Boolean?
+  parentId           Int?
+  isActive           Boolean?
+  branch             Branch[]
+}
+
+model PrimaryInterest {
+  primaryInterestId Int       @id @unique @default(autoincrement())
+  primaryInterest   String?
+  createdBy         String?
+  createdDate       DateTime?
+  updatedBy         String?
+  updatedDate       DateTime?
+}
+
+model Warehouse {
+  warehouseId    Int       @id @unique @default(autoincrement())
+  organisationId String?
+  tenantId       String?
+  name           String?
+  location       String?
+  createdBy      String?
+  createdDate    DateTime?
+  updatedBy      String?
+  updatedDate    DateTime?
+}
+
+model Branch {
+  branchId        Int              @id @unique @default(autoincrement())
+  organisationId  Int              @unique
+  address         String?
+  contactNumber   Int?
+  branchName      String?
+  isActive        Boolean?
+  createdBy       String?
+  createdDate     DateTime?
+  updatedBy       String?
+  updatedDate     DateTime?
+  branchOwnerName String?
+  noOfEmployees   Int?
+  countryId       Int?
+  email           String?
+  notes           String?
+  branchImage     String?
+  locations       CountryAndState? @relation(fields: [countryId], references: [countryId])
+  Inventory       Inventory[]
+}
+
+model EventTable {
+  id          Int       @id @default(autoincrement())
+  eventId     String    @unique
+  eventName   String?
+  eventType   String?
+  typeId      String?
+  beforeValue String?
+  aftervalue  String?
+  timestamp   DateTime?
+}
+
+model Inventory {
+  inventoryId Int  @id @default(autoincrement())
+  productId   Int? @unique
+  branchId    Int?
+
+  quantity    Int?
+  createdBy   String?
+  createdDate DateTime?
+  updatedBy   String?
+  updatedDate DateTime?
+  Product     Product?  @relation(fields: [productId], references: [productId])
+  Branch      Branch?   @relation(fields: [branchId], references: [branchId])
+}
+
+model Language {
+  languageId   Int       @unique @default(autoincrement())
+  languageName String?
+  createdBy    String?
+  createdDate  DateTime?
+  updatedBy    String?
+  updatedDate  DateTime?
+  User         User      @relation(fields: [languageId], references: [languageId])
+}
+
+model Organisation {
+  organisationId  Int       @id @default(autoincrement())
+  email           String?
+  companyName     String?
+  contactNumber   Int?
+  state           String?
+  country         String?
+  language        String?
+  companySize     String?
+  createdBy       String?
+  createdDate     DateTime? @default(now())
+  updatedBy       String?
+  updatedDate     DateTime? @default(now())
+  tenantId        String?   @unique
+  primaryInterest String?
+}
+
+model Password {
+  id                Int     @id @default(autoincrement())
+  passwordId        String  @unique
+  restPasswordToken String?
+}
+
+model Role {
+  roleId        Int             @unique @default(autoincrement())
+  roleName      String?
+  createdBy     String?
+  createdDate   DateTime?
+  updatedBy     String?
+  updatedDate   DateTime?
+  UserBranchMap UserBranchMap[]
+}
+
+model Tenant {
+  id          Int       @id @default(autoincrement())
+  tenantId    String    @unique
+  dbName      String?
+  dbUsername  String?
+  dbPassword  String?
+  createdBy   String?
+  createdDate DateTime?
+  updatedBy   String?
+  updatedDate DateTime?
+}
+
+model UnitOfMeasure {
+  unitId      Int       @unique @default(autoincrement())
+  units       String?
+  createdBy   String?
+  createdDate DateTime?
+  updatedBy   String?
+  updatedDate DateTime?
+}
+
+model UserBranchMap {
+  branchMapId    Int       @id @unique @default(autoincrement())
+  organisationId Int?
+  branchId       Int?
+  roleId         Int?
+  email          String    @unique @db.VarChar(255)
+  isActive       Boolean?
+  createdBy      String?
+  createdDate    DateTime?
+  updatedBy      String?
+  updatedDate    DateTime?
+  tenantId       String?
+  isInvited      Boolean?
+  isAccepted     Boolean?
+  User           User      @relation(fields: [email], references: [email])
+  Role           Role?     @relation(fields: [roleId], references: [roleId])
+}
+
+model UserSetting {
+  id          Int       @id @default(autoincrement())
+  settingId   String    @unique
+  inviteUser  Boolean?
+  manageUser  Boolean?
+  languageId  String?
+  roleId      String?
+  tenantId    String?
+  updatedBy   String?
+  updatedDate DateTime?
+}
+
+model CompanySize {
+  companySizeId Int       @unique @default(autoincrement())
+  companySize   String?
+  createdBy     String?
+  createdDate   DateTime?
+}
+
+model Product {
+  productId      Int         @id @unique @default(autoincrement())
+  tenantId       String?
+  organisationId Int?
+  name           String?
+  branchId       Int?
+  createdBy      String?
+  createdDate    DateTime?
+  updatedBy      String?
+  updatedDate    DateTime?
+  forSale        Boolean?
+  forPurchase    Boolean?
+  salesPrice     Int?
+  costPrice      Int?
+  productImage   String?
+  description    String?
+  categoryId     Int?
+  isActive       Boolean?    @default(true)
+  unitOfMeasure  Int?
+  thresholdLimit Int?
+  Inventory      Inventory[]
+}
+
+model Category {
+  categoryId   Int       @id @default(autoincrement())
+  categoryName String?
+  createdBy    String?
+  updatedBy    String?
+  createdDate  DateTime?
+  updatedDate  DateTime?
+}
+
+model Supplier {
+  supplierId     Int       @id @default(autoincrement())
+  supplierName   String?
+  type           Int?
+  branchId       Json?
+  productId      String?
+  email          String?
+  contactNumber  Int?
+  address        String?
+  countryId      Int?
+  createdBy      String?
+  updatedBy      String?
+  createdDate    DateTime?
+  updatedDate    DateTime?
+  organisationId Int?
+  Orders         Orders?   @relation(fields: [supplierId], references: [orderId])
+}
+
+model SupplierCategory {
+  categoryId   Int     @id @default(autoincrement())
+  categoryName String?
+}
+
+model BankDetails {
+  supplierId Int     @id @default(autoincrement())
+  bankDetail String?
+}
+
+model SalesDataSet {
+  id         Int       @id @default(autoincrement())
+  date       DateTime?
+  month      Int?
+  year       Int?
+  time       DateTime?
+  day        String?
+  dayType    String?
+  season     String?
+  cuisine    String?
+  category   String?
+  menuType   String?
+  menuItem   String?
+  quantity   Int?
+  price      String?
+  branchCode String?
+}
+
+model Orders {
+  orderId              Int        @id @default(autoincrement())
+  items                String?
+  supplierId           Int?
+  orderStatus          Boolean?   @default(false)
+  orderedBy            String?
+  orderedDate          DateTime?
+  expectedDeliveryDate DateTime?
+  branchId             Int?
+  Supplier             Supplier[]
+}
+
+model MenuItem {
+  itemId              String    @id @default(uuid())
+  itemName            String?
+  categoryId          String    @default(uuid())
+  itemPrice           Int?
+  itemDescription     String?
+  branchId            Int?
+  itemImageUrl        String?
+  menuItemInventoryId String
+  createdBy           String?
+  createdDate         DateTime?
+  updatedBy           String?
+  updatedDate         DateTime?
+  sku                 String?   @unique
+
+  MenuItemInventory    MenuItemInventory?    @relation(fields: [menuItemInventoryId], references: [menuItemInventoryId])
+  MenuItemDiningOrders MenuItemDiningOrder[]
+}
+
+model MenuItemCategory {
+  categoryId  String    @id @default(uuid())
+  category    String?
+  branchId    Int?
+  createdBy   String?
+  createdDate DateTime?
+  updatedBy   String?
+  updatedDate DateTime?
+}
+
+model MenuItemInventory {
+  menuItemInventoryId String @unique @default(uuid())
+
+  availableUnits Int?
+  createdBy      String?
+  updatedBy      String?
+  createdDate    DateTime
+  updatedDate    DateTime?
+  MenuItem       MenuItem[]
+}
+
+model FloorLayout {
+  floorId     Int           @id @default(autoincrement())
+  branchId    Int?
+  floorName   String?
+  isActive    Boolean?
+  createdBy   String?
+  updatedBy   String?
+  createdDate DateTime?
+  updatedDate DateTime?
+  TableLayout TableLayout[]
+}
+
+model TableLayout {
+  tableId        Int          @id @default(autoincrement())
+  tableName      String?
+  tableNumber    Int?
+  numberOfChairs Int?
+  floorId        Int?         @unique
+  isOccupied     Boolean?
+  createdBy      String?
+  updatedBy      String?
+  createdDate    DateTime?
+  updatedDate    DateTime?
+  FloorLayout    FloorLayout? @relation(fields: [floorId], references: [floorId])
+}
+
+model DiningOrder {
+  orderId             Int                   @id @unique @default(autoincrement())
+  tableId             Int?                  @unique
+  orderType           String?
+  taxAmount           Float?
+  discountAmount      Float?
+  hasPriority         Boolean?
+  customerId          String?
+  totalPrice          Int?
+  orderStatus         String?
+  createdBy           String?
+  updatedBy           String?
+  createdDate         DateTime?
+  updatedDate         DateTime?
+  MenuItemDiningOrder MenuItemDiningOrder[]
+  Bills               Bills?                @relation(fields: [orderId], references: [orderId], map: "FK_DiningOrder_Bills")
+}
+
+model Customer {
+  customerId String @id @default(uuid())
+
+  customerName  String?
+  contactNumber Int?
+  createdBy     String?
+  updatedBy     String?
+  createdDate   DateTime?
+  updatedDate   DateTime?
+}
+
+model MenuItemDiningOrder {
+  menuItemOrderId Int          @id @default(autoincrement())
+  menuItemId      String
+  quantity        Int?
+  orderId         Int?         @unique
+  createdBy       String?
+  updatedBy       String?
+  createdDate     DateTime?
+  updatedDate     DateTime?
+  comments        String?
+  DiningOrder     DiningOrder? @relation(fields: [orderId], references: [orderId], map: "FK_MenuItemDiningOrder_DiningOrder")
+  Bills           Bills?       @relation(fields: [orderId], references: [orderId], map: "FK_MenuItemDiningOrder_Bills")
+  KOTItems        KOTItems[]
+  MenuItem        MenuItem?    @relation(fields: [menuItemId], references: [itemId], map: "FK_MenuItemDiningOrder_MenuItem")
+}
+
+model Tax {
+  taxId          Int       @id @default(autoincrement())
+  taxName        String?
+  taxRate        Int?
+  applicableFrom DateTime?
+  applicableTo   DateTime?
+  countryId      Int?
+}
+
+model OrderTax {
+  id        Int     @id @default(autoincrement())
+  taxId     String?
+  orderId   Int?
+  taxAmount Int?
+  taxRate   Int?
+}
+
+model Bills {
+  billId              Int                   @id @default(autoincrement())
+  orderId             Int?                  @unique
+  totalAmount         Int?
+  voucherId           Int?
+  discountAmount      Int?
+  finalAmount         Int?
+  numberOfSplits      Int?
+  paymentStatus       String?
+  paymentMethod       String?
+  splitType           String?
+  createdAt           DateTime?
+  MenuItemDiningOrder MenuItemDiningOrder[]
+  DiningOrder         DiningOrder[]
+}
+
+model BillItems {
+  id          Int         @id @default(autoincrement())
+  billId      Int?
+  orderItemId Int?
+  amount      Int?
+  SplitBills  SplitBills? @relation(fields: [billId], references: [id])
+}
+
+model SplitBills {
+  id             Int         @id @default(autoincrement())
+  originalBillId Int?
+  splitBillId    Int?
+  splitBillType  String?
+  BillItems      BillItems[]
+}
+
+model Vouchers {
+  id            Int       @id @default(autoincrement())
+  voucherId     Int?
+  code          String?
+  description   String?
+  discountType  String?
+  discountValue Int?
+  expiryDate    DateTime?
+  isActive      Boolean?
+  createdAt     DateTime?
+}
+
+model VoucherUsage {
+  id             Int       @id @default(autoincrement())
+  orderId        String?
+  voucherId      Int?
+  discountAmount Int?
+  appliedAt      DateTime?
+}
+
+model Payments {
+  id             Int       @id @default(autoincrement())
+  paymentId      Int?
+  billId         Int?
+  amount         Int?
+  paymentDate    DateTime?
+  paymentMethod  String?
+  paymentGateway String?
+  transactionId  Int?
+  currencyCode   Int?
+  tax            Int?
+  tipAmount      Int?
+  createdAt      DateTime?
+}
+
+model Receipts {
+  id            Int     @id @default(autoincrement())
+  receiptId     Int?
+  paymentId     Int?
+  receiptNumber String?
+  issuedDate    String?
+  details       String?
+}
+
+model KOT {
+  kotId     Int       @id @default(autoincrement())
+  orderId   Int?
+  kotNumber String?
+  status    String?
+  createdAt DateTime?
+}
+
+model KOTItems {
+  id                  Int                  @id @default(autoincrement())
+  kotId               Int?
+  orderItemId         Int?                 @unique
+  quantity            Int?
+  status              String?
+  MenuItemDiningOrder MenuItemDiningOrder? @relation(fields: [orderItemId], references: [menuItemOrderId])
+}
+
+model TableTransfer {
+  id           Int       @id @default(autoincrement())
+  transferId   Int?
+  orderId      Int?
+  fromTableId  Int?
+  toTableId    Int?
+  transferDate DateTime?
+  reason       String?
+}

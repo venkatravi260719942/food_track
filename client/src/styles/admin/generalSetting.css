@@ -1,0 +1,157 @@
+/* Admin Dashboard Title*/
+.titlebox{
+    display: flex;
+    width: 100%;
+    background-color: #F9F9F9;
+}
+.title{
+    display: flex;
+    margin-left: 50px;
+    align-items: center;
+    height: 55px;
+}
+
+/* Admin Manage user */
+.user_manage{
+    display: flex;
+    margin: 20px 50px 0px 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+.user_manage span{
+    font-size:larger;
+}
+.user_manage button{
+    border-radius: 10px;
+    background-color: #0A8CCD;
+    color: #FFFFFF;
+    border: none;
+    font-size: medium;
+    height: 43px;
+    width: 100px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Invite users title */
+.invite_title{
+    display: flex;
+    gap: 10px;
+}
+.invite_title span{
+    display: flex;
+    align-items: center;
+}
+.invite_user h3{
+    margin: 0px 0px;
+    font-weight: normal;
+}
+
+/* Invite users section*/
+.invite_main{
+    display: flex;
+    flex-direction: row;
+    margin: 30px 50px 30px 50px;
+}
+.invite_section{
+    margin: 30px 0px 0px 0px;
+}
+.invite_box{
+    width: 290px;
+    border: 2px solid #248CE7;
+    border-radius: 8px;
+    margin: 10px 0px 0px 0px;
+}
+.invite_box input{
+    border: none;
+    width: 250px;
+    height: 35px;
+    border-radius: 8px;
+    text-indent: 5px;
+}
+.invite_box input:focus{
+    outline: none;
+    border: none;
+}
+
+.invite_box button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.errmsg{
+    margin: 10px 0px 0px 0px;
+    color: #ff3333;
+    font-size: small;
+}
+
+/* Vertical Bar */
+.vertical{
+    height: 150px;
+    border: 1px solid #707070;
+    margin: 0% 0% 0% 15%;
+}
+
+/* Pending user title*/
+.pending_title{
+    display: flex;
+    gap: 10px;
+}
+.pending_title span{
+    display: flex;
+    align-items: center;
+}
+.pending_user h3{
+    margin: 0px 0px;
+    font-weight: normal;
+}
+
+/* Pending user section */
+.pending_user{
+    margin: 0% 0% 0% 10%;
+}
+
+/* Pending users panel */
+.pending_userbox{
+    width: 250px;
+    height: 115px;
+    overflow-y: scroll
+}
+
+
+/* Language Section */
+.language{
+    margin: 0px 0px 0px 50px;
+}
+.lang_section{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.lang_title h3{
+    font-weight: normal;
+}
+.status_btn button{
+    background-color: transparent;
+    border-radius: 8px;
+    width: 50px;
+    height: 40px;
+    border: 1px solid#EAEAEA;
+}
+
+/* scroll bar */
+::-webkit-scrollbar{
+    width: 20px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+}

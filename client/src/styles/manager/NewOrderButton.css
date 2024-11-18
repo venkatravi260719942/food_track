@@ -1,0 +1,32 @@
+.dateandsearchtw {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+  
+  .dateandsearchtw span {
+    width: 127px;
+    display: flex;
+    height: 42px;
+    border: 1px solid #707070;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+  
+  .Neworderbutton button {
+    background-color: #1976d2;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 962px;
+    justify-content: space-between;
+    padding-top: 12px;
+    padding-left: 10px;
+  }
+  
+
+  

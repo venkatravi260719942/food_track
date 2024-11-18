@@ -1,0 +1,101 @@
+/* Manage user - General settings*/
+.manage_titlebox {
+  display: flex;
+  width: 100%;
+}
+.manage_title {
+  display: flex;
+  margin: 10px 0px 0px 30px;
+  align-items: center;
+  height: 55px;
+  gap: 10px;
+}
+.manage_title button {
+  background-color: transparent;
+  border: 1px solid #707070;
+  border-radius: 7px;
+  width: 42px;
+  cursor: pointer;
+}
+.manage_title span {
+  font-size: 20px;
+}
+/* Active user panel */
+.active_panel {
+  display: flex;
+  margin: 20px 50px 0px 30px;
+  align-items: center;
+}
+.active_panel span {
+  font-size: 20.8px;
+}
+
+/* Users table */
+.user_table {
+  display: flex;
+  margin: 30px 50px 0px 30px;
+  padding: 0px 0px 30px 0px;
+}
+
+/* Manage user table*/
+.confirm {
+  color: #0a8ccd;
+}
+.pending {
+  color: #858585;
+}
+
+.filter_data {
+  display: flex;
+  margin: 20px 50px 0px 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+.status_filter {
+  display: flex;
+  flex-direction: row;
+}
+.filter_btn {
+  display: flex;
+  align-items: center;
+}
+.filter_btn button {
+  border-radius: 10px;
+  background-color: #0a8ccd;
+  color: #ffffff;
+  border: none;
+  font-size: medium;
+  height: 43px;
+  width: 100px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.reset_btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search_box {
+  width: 260px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+}
+.search_box input {
+  border: none;
+  width: 220px;
+  height: 38px;
+  border-radius: 8px;
+  text-indent: 5px;
+  background-clip: text; 
+  -webkit-background-clip: text; 
+  -moz-background-clip: text; 
+}
+.search_box input:focus {
+  outline: none;
+  border: none;
+}
+.search_box button {
+  background-color: transparent;
+  border: none;
+}

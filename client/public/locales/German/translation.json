@@ -1,0 +1,18 @@
+{
+  "sidebar": {
+    "dashboard": "Armaturenbrett",
+    "userManagement": "Benutzerverwaltung",
+    "productManagement": "Produkt Management",
+    "supplierManagement": "Lieferantenmanagement",
+    "finance": "Finanzen"
+  },
+  "FloorPlanning": {
+    "text": {
+      "Name the new floor": "Bodendetails"
+    },
+    "label": {
+      "Floor name": "Etagenname",
+      "Dimensions": "Abmessungen"
+    }
+  }
+}

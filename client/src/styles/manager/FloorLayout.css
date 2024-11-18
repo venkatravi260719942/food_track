@@ -1,0 +1,40 @@
+.floorLayout_page {
+    height: 90vh;
+    padding-top: 309px;
+  }
+  .initial_floorLayout_text {
+    font-size: 24px;
+    width: 861px;
+    margin-bottom: 17px;
+    color: #212121;
+    font-weight: bold ;
+    font-family: "Roboto";
+    margin-left: 343px;
+  }
+  .floor_add_button {
+    width: 60px;
+    height: 36px;
+    color: #ffffff;
+    background-color: #1565C0;
+    font-size: 14px;
+    display: flex;
+    font-weight: medium ;
+
+    font-family: "Roboto";
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+.floor_add_buttonpop{
+  display:flex;
+  justify-content:center;
+  width: 60px;
+height: 36px;
+align-items: center;
+border-radius: 4px;
+font: normal normal medium 14px/14px Roboto;
+color: #ffffff;
+background-color: #1976D2;
+}

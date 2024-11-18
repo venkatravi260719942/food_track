@@ -1,0 +1,21 @@
+export default {
+  type: "object",
+  properties: {
+    date: { type: "string", format: "date-time" },
+    month: { type: "integer" },
+    year: { type: "integer" },
+    time: { type: "string", format: "date-time" },
+    day: { type: "string" },
+    dayType: { type: "string" },
+    season: { type: "string" },
+    cuisine: { type: "string" },
+    category: { type: "string" },
+    menuType: { type: "string" },
+    menuItem: { type: "string" },
+    quantity: { type: "integer" },
+    price: { type: "string" },
+    branchCode: { type: "string" },
+  },
+  required: [],
+  additionalProperties: false,
+};

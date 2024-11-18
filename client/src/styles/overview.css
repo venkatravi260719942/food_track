@@ -1,0 +1,111 @@
+.no-scroll .down_content {
+  display: none;
+}
+
+.down_content {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  background-color: #f0f0f0;
+  width: 99vw;
+  height: 90vh;
+}
+
+.down_content.visible {
+  opacity: 1;
+}
+
+.logo {
+  display: flex;
+  justify-content: left;
+  height: 70px;
+}
+.logo img {
+  width: 190px;
+}
+.content {
+  display: flex;
+  height: 82.5vh;
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  background-image: url("../assets/images/intro.png");
+  animation-name: changeBackground;
+  animation-duration: 10s; /* Set the total duration for one cycle of the animation */
+  animation-iteration-count: infinite; /* Repeat the animation indefinitely */
+  animation-timing-function: linear; /* Use a linear timing function for a consistent transition */
+}
+
+@keyframes changeBackground {
+  90%,
+  100%,
+  0%,
+  100% {
+    background-image: url("../assets/images/veg1.jpg");
+  }
+  20%,
+  30%,
+  40%,
+  50% {
+    background-image: url("../assets/images/veg2.jpg");
+  }
+
+  50%,
+  60%,
+  70%,
+  80% {
+    background-image: url("../assets/images/veg3.jpg");
+  }
+}
+
+.left_content,
+.right_content {
+  flex: 1;
+}
+
+.left_content {
+  margin-top: 6vh;
+  margin-left: 6vw;
+  margin-right: 6vw;
+  margin-bottom: 12vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-top: 2vh;
+  height: 70vh;
+  background-color: rgba(12, 12, 12, 0.5);
+  color: white;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.left_content h3 {
+  font-weight: 400;
+  opacity: 1;
+}
+
+.centered-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.features {
+  display: flex;
+  justify-content: center;
+  background-color: #e0f0f3;
+  border: 1px solid #89ddf5;
+  font-size: larger;
+  font-weight: 600;
+  border-radius: 10px;
+  width: 10vw;
+  padding: 10px;
+  margin-top: 30px;
+}
+.card_content {
+  display: flex;
+  justify-content: center;
+}
+.overview_image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 140px;
+  width: 300px;
+}

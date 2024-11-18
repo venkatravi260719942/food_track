@@ -1,0 +1,67 @@
+/* .dashboard_manager {
+  padding-left: "54px";
+  padding-top: "55px";
+  background-color: "#F1F1F7";
+  min-height: "90vh";
+} */
+
+.homePage_title {
+  font-size: 45px;
+}
+.HomePage_overview {
+  margin-top: 32px;
+  font-size: 37px;
+  color: #151313;
+}
+.homePage_card {
+  display: "flex";
+  align-items: "center";
+  background-color: "#FFFFFF";
+  padding: "20px";
+  border-radius: "5px";
+  width: "342px";
+  height: "150px";
+}
+.card {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 342px;
+  height: 150px;
+}
+
+.card_content {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.card_title {
+  font-size: 22px;
+}
+
+.card_value {
+  font-size: 57px;
+}
+.icon_card_1,
+.icon_card_2 {
+  width: 66px;
+  height: 66px;
+  border-radius: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon_card_1 {
+  background-color: #60a5fa;
+}
+.icon_card_2 {
+  background-color: #ef4444;
+}
+
+.fa-fw-3 {
+  width: 25px;
+  height: 28px;
+  color: #ffffff;
+}

@@ -1,0 +1,80 @@
+.topbar {
+  display: flex;
+  width: 100%;
+  background-color: #ffffff;
+  justify-content: space-between;
+  border-bottom: 1px solid #5ba4fb4f;
+  border-left: 1px solid #5ba4fb4f;
+}
+
+.search {
+  display: flex;
+  position: relative;
+  color: #aaa;
+  font-size: 16px;
+  align-items: center;
+}
+.search input {
+  width: 250px;
+  height: 36px;
+  background: #f1f1f7;
+  border-radius: 10px;
+  text-indent: 16px;
+  border: none;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-left: 35px;
+}
+.search svg {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 13px;
+  right: 3px;
+  /* left: auto; */
+  height: 20px;
+  width: 20px;
+}
+
+.topbar_right {
+  display: flex;
+  align-items: center;
+  margin-right: 28px;
+  gap: 6px;
+}
+.topbar_right button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 36px;
+  align-items: center;
+}
+.top_btn svg {
+  margin: 8px;
+  height: 20px;
+  width: 20px;
+}
+.top_btn:hover {
+  color: #bbdbeb;
+}
+.active {
+  color: white;
+}
+.fa-fw-2 {
+  width: 20px;
+  height: 20px;
+  color: #858585;
+}
+.border {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #707070;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.FI_Searchbar {
+  position: relative;
+}
