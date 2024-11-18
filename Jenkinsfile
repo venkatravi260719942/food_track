@@ -10,7 +10,6 @@ pipeline {
         CLIENT_IMAGE = 'foodtrack-client'   // Docker image for client
         SERVER_IMAGE = 'foodtrack-server'   // Docker image for server
         DOCKER_USERNAME = 'venkatravi26071994' // Docker Hub registry
-        DOCKER_PASSWORD = 'dckr_pat_JTrli2BddxJ6px99ia7M8j0z7K8'
         DOCKER_REPO = 'food'        // Docker Hub repository
         COMPOSE_FILE = 'docker-compose.yml' // Docker Compose file for deployment
         USER = 'ubuntu'
@@ -24,15 +23,18 @@ pipeline {
             }
         }
 
-
         stage('CI: Build & Push Docker Images') {
             steps {
                 script {
-                    // Docker login 
-                    sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
+                    // Docker login securely using Jenkins credentials
+                    withCredentials([string(credentialsId: 'DOCKERHUB_CREDENTIAL_ID', variable: 'DOCKER_PASSWORD')]) {
+                        sh '''
+                            echo "$DOCKER_PASSWORD" | docker login -u ${DOCKER_USERNAME} --password-stdin
+                        '''
+                    }
                     // Build Docker image for the client                    
-                    sh "docker build -t ${DOCKER_REPO}/${SERVER_IMAGE}:${IMAGE_TAG} ./client"
-                   // Build Docker image for the client and server
+                    sh "docker build -t ${DOCKER_REPO}/${CLIENT_IMAGE}:${IMAGE_TAG} ./client"
+                    // Build Docker image for the server
                     sh "docker build -t ${DOCKER_REPO}/${SERVER_IMAGE}:${IMAGE_TAG} ./server"
                   
                     // Push Docker images to the registry
@@ -46,7 +48,9 @@ pipeline {
             steps {
                 script {
                     sh "sudo chmod 400 ${PEM}"
-                    sh "ssh -i ${PEM} ${USER}@${TARGET_HOST} && docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
+                    sh '''
+                        ssh -i ${PEM} ${USER}@${TARGET_HOST} "echo '$DOCKER_PASSWORD' | docker login -u ${DOCKER_USERNAME} --password-stdin"
+                    '''
                 }
             }
         }        
@@ -63,7 +67,7 @@ pipeline {
                     sh "ssh -i ${PEM} ${USER}@${TARGET_HOST} 'docker pull ${DOCKER_REPO}/${SERVER_IMAGE}:${IMAGE_TAG}'"
                     
                     // Deploy the images using docker-compose on the Target VM
-                    sh "ssh -i ${PEM} ${USER}@${TARGET_HOST} '/home/ubuntu/docker-compose.yml up -d'"
+                    sh "ssh -i ${PEM} ${USER}@${TARGET_HOST} 'docker-compose -f /home/ubuntu/docker-compose.yml up -d'"
                 }
             }
         }
