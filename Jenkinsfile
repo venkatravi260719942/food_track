@@ -24,18 +24,7 @@ pipeline {
             }
         }
 
-        stage('SSH Docker Login') {
-            steps {
-                script {
-                    sh "sudo chmod 400 ${PEM}"
-                    sh """
-                        ssh -i ${PEM} ${USER}@${TARGET_HOST} \\
-                        'docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}'
-                    """
-                }
-            }
-        }        
-        
+
         stage('CI: Build & Push Docker Images') {
             steps {
                 script {
@@ -52,6 +41,15 @@ pipeline {
                 }
             }
         }
+        
+        stage('SSH Docker Login') {
+            steps {
+                script {
+                    sh "sudo chmod 400 ${PEM}"
+                    sh "ssh -i ${PEM} ${USER}@${TARGET_HOST} && docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
+                }
+            }
+        }        
         
         stage('CD: Deploy to Target Host') {
             steps {
