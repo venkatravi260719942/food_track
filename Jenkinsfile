@@ -13,6 +13,7 @@ pipeline {
         COMPOSE_FILE = 'docker-compose.yml' // Docker Compose file for deployment
         ENV_FILE = '.env'
         USER = 'ubuntu'
+        PEM_FILE = '/home/ubuntu/mumbai.pem' // Path to the .pem file
     }
     stages {
         stage('CI: Checkout') {
@@ -24,7 +25,7 @@ pipeline {
                             $class: 'GitSCM',
                             branches: [[name: '*/main']],
                             userRemoteConfigs: [[
-                                url: 'https://github.com/your-repo.git',
+                                url: 'https://github.com/venkatravi260719942/food_track.git',
                                 credentialsId: 'github'
                             ]]
                         ])
@@ -56,13 +57,11 @@ pipeline {
         stage('SSH Docker Login') {
             steps {
                 script {
-                    withCredentials([sshUserPrivateKey(credentialsId: 'TARGET_SSH_CREDENTIAL', keyFileVariable: 'SSH_KEY')]) {
-                        withCredentials([usernamePassword(credentialsId: 'DOCKERHUB_CREDENTIAL_ID', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                            sh '''
-                                chmod 400 $SSH_KEY
-                                ssh -o StrictHostKeyChecking=no -i $SSH_KEY ${USER}@${TARGET_HOST} "echo '$DOCKER_PASSWORD' | docker login -u '$DOCKER_USERNAME' --password-stdin"
-                            '''
-                        }
+                    withCredentials([usernamePassword(credentialsId: 'DOCKERHUB_CREDENTIAL_ID', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                        sh '''
+                            chmod 400 ${PEM_FILE}
+                            ssh -o StrictHostKeyChecking=no -i ${PEM_FILE} ${USER}@${TARGET_HOST} "echo '$DOCKER_PASSWORD' | docker login -u '$DOCKER_USERNAME' --password-stdin"
+                        '''
                     }
                 }
             }
@@ -71,20 +70,19 @@ pipeline {
         stage('CD: Deploy to Target Host') {
             steps {
                 script {
-                    withCredentials([sshUserPrivateKey(credentialsId: 'TARGET_SSH_CREDENTIAL', keyFileVariable: 'SSH_KEY')]) {
-                        sh '''
-                            # Transfer necessary files to the target host
-                            scp -i $SSH_KEY ${ENV_FILE} ${USER}@${TARGET_HOST}:/home/ubuntu/.env
-                            scp -i $SSH_KEY ${COMPOSE_FILE} ${USER}@${TARGET_HOST}:/home/ubuntu/docker-compose.yml
-                            
-                            # Pull Docker images on the target host
-                            ssh -i $SSH_KEY ${USER}@${TARGET_HOST} 'docker pull ${DOCKER_REPO}:${CLIENT_IMAGE}-${IMAGE_TAG}'
-                            ssh -i $SSH_KEY ${USER}@${TARGET_HOST} 'docker pull ${DOCKER_REPO}:${SERVER_IMAGE}-${IMAGE_TAG}'
-                            
-                            # Deploy the application using docker-compose
-                            ssh -i $SSH_KEY ${USER}@${TARGET_HOST} 'docker-compose -f /home/ubuntu/docker-compose.yml up -d'
-                        '''
-                    }
+                    sh '''
+                        # Transfer necessary files to the target host
+                        chmod 400 ${PEM_FILE}
+                        scp -i ${PEM_FILE} ${ENV_FILE} ${USER}@${TARGET_HOST}:/home/ubuntu/.env
+                        scp -i ${PEM_FILE} ${COMPOSE_FILE} ${USER}@${TARGET_HOST}:/home/ubuntu/docker-compose.yml
+                        
+                        # Pull Docker images on the target host
+                        ssh -i ${PEM_FILE} ${USER}@${TARGET_HOST} 'docker pull ${DOCKER_REPO}:${CLIENT_IMAGE}-${IMAGE_TAG}'
+                        ssh -i ${PEM_FILE} ${USER}@${TARGET_HOST} 'docker pull ${DOCKER_REPO}:${SERVER_IMAGE}-${IMAGE_TAG}'
+                        
+                        # Deploy the application using docker-compose
+                        ssh -i ${PEM_FILE} ${USER}@${TARGET_HOST} 'docker-compose -f /home/ubuntu/docker-compose.yml up -d'
+                    '''
                 }
             }
         }
