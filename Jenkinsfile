@@ -4,7 +4,7 @@ pipeline {
     }
     parameters {
         string(name: 'TARGET_HOST', defaultValue: '13.203.76.79', description: 'Target VM IP Address for Deployment')
-        string(name: 'IMAGE_TAG', defaultValue: "v${env.BUILD_ID}", description: 'Docker image tag (default: Build ID)')
+        string(name: 'IMAGE_TAG', defaultValue: "v1.0.${env.BUILD_ID}", description: 'Docker image tag (default: Build ID)')
     }
     environment {
         CLIENT_IMAGE = 'foodtrack-client'   // Docker image for client
