@@ -60,7 +60,7 @@ pipeline {
                         withCredentials([usernamePassword(credentialsId: 'DOCKERHUB_CREDENTIAL_ID', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                             sh '''
                                 chmod 400 $SSH_KEY
-                                ssh -i $SSH_KEY ${USER}@${TARGET_HOST} "echo '$DOCKER_PASSWORD' | docker login -u '$DOCKER_USERNAME' --password-stdin"
+                                ssh -o StrictHostKeyChecking=no -i $SSH_KEY ${USER}@${TARGET_HOST} "echo '$DOCKER_PASSWORD' | docker login -u '$DOCKER_USERNAME' --password-stdin"
                             '''
                         }
                     }
