@@ -3,7 +3,7 @@ pipeline {
         label 'slave' // Use the specific agent
     }
     parameters {
-        string(name: 'TARGET_HOST', defaultValue: '13.203.76.79', description: 'Target VM IP Address for Deployment')
+        string(name: 'TARGET_HOST', defaultValue: '13.201.80.51', description: 'Target VM IP Address for Deployment')
         string(name: 'IMAGE_TAG', defaultValue: "v1.0.${env.BUILD_ID}", description: 'Docker image tag (default: Build ID)')
     }
     environment {
