@@ -37,6 +37,7 @@ Use the following steps to create these VMs:
      ssh -i /path/to/your-key.pem ubuntu@<target-vm-ip>
      ```
 
+```
 ### 2. Install Software on Target VM
 
 1. **Install Docker and Docker Compose**:
