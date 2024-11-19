@@ -248,10 +248,6 @@ The pipeline also ensures that old containers and images are deleted after a suc
 
 With this CI/CD pipeline, you can automate the process of deploying your Food Tracking application. The process includes code checkout, Docker image build and push, deployment using Docker Compose, and post-deployment cleanup.
 
-Feel free to customize the pipeline as per your project requirements and expand the functionality further.
-
 ---
 
-Let me know if
 
- you need further customizations or explanations!
