@@ -15,6 +15,7 @@ Before setting up the CI/CD pipeline, ensure that the following components are a
 - **AWS CLI**: For interaction with AWS services (if using S3 or EC2)
 - **Docker Hub**: A Docker Hub account for image storage
 
+```
 ## Steps
 
 ### 1. VM Creation
@@ -37,7 +38,7 @@ Use the following steps to create these VMs:
      ssh -i /path/to/your-key.pem ubuntu@<target-vm-ip>
      ```
 
-```
+
 ### 2. Install Software on Target VM
 
 1. **Install Docker and Docker Compose**:
